@@ -2,6 +2,7 @@ package com.example.cynthia.relax.activitis.login;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,15 +12,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.example.cynthia.relax.R;
 import com.example.cynthia.relax.activitis.main.MainActivity;
-import com.example.cynthia.relax.beans.UserBean;
 import com.example.cynthia.relax.presenters.LoginPresenter;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
-import java.io.*;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
     @Bind(R.id.editLoginPhone)
@@ -34,6 +28,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     @Bind(R.id.loginProgressBar)
     ProgressBar progressBar;
 
+    private SharedPreferences sharedPreferences;
     private LoginPresenter loginPresenter;
     private String phone;
     private String password;
@@ -43,25 +38,26 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
-
-        /*loginBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickLogin(v);
-            }
-        });*/
-
+        sharedPreferences = this.getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         loginPresenter = new LoginPresenter(this);
     }
 
     @OnClick(R.id.loginBtn)
     public void onClick(View v){
         loginPresenter.login(getUserPhone(),getUserPassword());
+
+    }
+
+    @Override
+    public void saveUserIdToSharedPreferences(int userId){
+        SharedPreferences.Editor editor = sharedPreferences.edit();//获取编辑器
+        editor.putInt("userID", userId);
+        editor.commit();
     }
 
     @Override
     public void showSuccessMsg(int userId) {
-        Toast.makeText(LoginActivity.this, "UserBean " + userId + " Login Success!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(LoginActivity.this, "User " + userId + " Login Success!", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
     }
@@ -94,70 +90,5 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     @Override
     public Context context() {
         return this;
-    }
-
-    public void sendRequestWithOkHttp(){
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try{
-                    OkHttpClient client = new OkHttpClient();
-                    Request request = new Request.Builder().url("http://www.baidu.com").build();
-                    Response response = client.newCall(request).execute();
-                    String responseData = response.body().string();
-                    showResponseData(responseData);
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
-        }).start();
-    }
-
-    public void sendRequestWithHttpURLConnection(){
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                HttpURLConnection connection = null;
-                BufferedReader reader = null;
-                try {
-                    URL url = new URL("http://www.baidu.com");
-                    connection = (HttpURLConnection)url.openConnection();
-                    connection.setRequestMethod("GET");
-                    connection.setConnectTimeout(8000);
-                    connection.setReadTimeout(8000);
-                    InputStream in = connection.getInputStream();
-                    reader = new BufferedReader(new InputStreamReader(in));
-                    StringBuilder response = new StringBuilder();
-                    String line;
-                    while((line = reader.readLine())!=null) {
-                        response.append(line);
-                    }
-                    showResponseData(response.toString());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                finally {
-                    if(reader!=null) {
-                        try {
-                            reader.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    if(connection!=null){
-                        connection.disconnect();
-                    }
-                }
-            }
-        }).start();
-    }
-
-    private void showResponseData(final String response){
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                //result.setText(response);
-            }
-        });
     }
 }
