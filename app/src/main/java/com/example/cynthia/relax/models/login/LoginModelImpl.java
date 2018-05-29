@@ -1,9 +1,8 @@
-package com.example.cynthia.relax.models.impl;
+package com.example.cynthia.relax.models.login;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import com.example.cynthia.relax.beans.User;
-import com.example.cynthia.relax.models.ILoginModel;
 import com.example.cynthia.relax.services.IUserService;
 import com.example.cynthia.relax.services.UserServiceImpl;
 import retrofit2.Call;
@@ -15,13 +14,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class LoginModelImpl implements ILoginModel {
     IUserService userService;
     int loginResult;
-
+    protected static final String path = "http://10.0.2.2:10000/api/user/login";
     @Override
     public void login(final String phone, final String password,final OnLoginListener onLoginListener, Context context) {
-        String baseUrl = "https://api.douban.com/v2/movie/";
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(baseUrl)
+                .baseUrl(path)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -40,6 +38,7 @@ public class LoginModelImpl implements ILoginModel {
                 call.enqueue(new Callback<User>() {
                     @Override
                     public void onResponse(Call<User> call, Response<User> response) {
+                        System.out.println("!!!!!!!");
                         onLoginListener.loginSuccess(new User(phone,password));
                     }
 

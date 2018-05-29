@@ -1,4 +1,4 @@
-package com.example.cynthia.relax.activitis;
+package com.example.cynthia.relax.activitis.login;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,9 +10,9 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.example.cynthia.relax.R;
+import com.example.cynthia.relax.activitis.main.MainActivity;
 import com.example.cynthia.relax.beans.User;
 import com.example.cynthia.relax.presenters.LoginPresenter;
-import com.example.cynthia.relax.views.LoginView;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -23,18 +23,20 @@ import java.net.URL;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
     @Bind(R.id.editLoginPhone)
-    private EditText editPhone;
+    EditText editPhone;
 
     @Bind(R.id.editLoginPwd)
-    private EditText editPwd;
+    EditText editPwd;
 
     @Bind(R.id.loginBtn)
-    private Button loginBtn;
+    Button loginBtn;
 
     @Bind(R.id.loginProgressBar)
-    private ProgressBar progressBar;
+    ProgressBar progressBar;
 
     private LoginPresenter loginPresenter;
+    private String phone;
+    private String password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,12 +56,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     @OnClick(R.id.loginBtn)
     public void onClick(View v){
-        clickLogin(v);
-    }
-
-    //点击登录
-    public void clickLogin(View view) {
-        loginPresenter.login();
+        loginPresenter.login(getUserPhone(),getUserPassword());
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.example.cynthia.relax.views;
+package com.example.cynthia.relax.activitis.login;
 
 import android.content.Context;
 import com.example.cynthia.relax.beans.User;
