@@ -2,6 +2,8 @@ package com.example.cynthia.relax.utils;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public abstract class RetrofitUtils {
     //服务器路径
@@ -15,7 +17,7 @@ public abstract class RetrofitUtils {
      *
      * @return
      */
-    protected static Retrofit getRetrofit() {
+    /*protected static Retrofit getRetrofit() {
 
         if (null == mRetrofit) {
 
@@ -32,5 +34,5 @@ public abstract class RetrofitUtils {
         }
 
         return mRetrofit;
-    }
+    }*/
 }

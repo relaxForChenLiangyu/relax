@@ -1,13 +1,13 @@
-package com.example.cynthia.relax.models;
+package com.example.cynthia.relax.models.login;
 
 import android.content.Context;
-import com.example.cynthia.relax.beans.User;
+import com.example.cynthia.relax.beans.UserBean;
 
 public interface ILoginModel {
     void login(String phone, String password, OnLoginListener onLoginListener, Context context);
 
     interface OnLoginListener {
-        void loginSuccess(User user);
+        void loginSuccess(UserBean userBean);
 
         void loginFailed(String s);
     }

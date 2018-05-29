@@ -1,7 +1,7 @@
-package com.example.cynthia.relax.views;
+package com.example.cynthia.relax.activitis.login;
 
 import android.content.Context;
-import com.example.cynthia.relax.beans.User;
+import com.example.cynthia.relax.beans.UserBean;
 
 /**
  * Created by Administrator on 2018/4/29/029.
@@ -18,7 +18,7 @@ public interface LoginView {
     void hideLoading();
 
     //登录成功或失败后，返回信息的方法
-    void showSuccessMsg(User user);
+    void showSuccessMsg(int userId);
     void showFailedMsg(String s);
 
 }
