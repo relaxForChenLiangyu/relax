@@ -2,7 +2,7 @@ package com.example.cynthia.relax.models.login;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import com.example.cynthia.relax.beans.User;
+import com.example.cynthia.relax.beans.UserBean;
 import com.example.cynthia.relax.services.IUserService;
 import com.example.cynthia.relax.services.UserServiceImpl;
 import retrofit2.Call;
@@ -34,19 +34,19 @@ public class LoginModelImpl implements ILoginModel {
                     onLoginListener.loginFailed("账号和密码不能为空");
                     return;
                 }
-                Call<User> call = userService.getUserInfo(phone, password);
-                call.enqueue(new Callback<User>() {
+                /*Call<UserBean> call = userService.getUserInfo(phone, password);
+                call.enqueue(new Callback<UserBean>() {
                     @Override
-                    public void onResponse(Call<User> call, Response<User> response) {
+                    public void onResponse(Call<UserBean> call, Response<UserBean> response) {
                         System.out.println("!!!!!!!");
-                        onLoginListener.loginSuccess(new User(phone,password));
+                        //onLoginListener.loginSuccess(new UserBean(phone,password));
                     }
 
                     @Override
-                    public void onFailure(Call<User> call, Throwable t) {
+                    public void onFailure(Call<UserBean> call, Throwable t) {
                         onLoginListener.loginFailed("账号或密码不正确");
                     }
-                });
+                });*/
             }
         }.start();
     }

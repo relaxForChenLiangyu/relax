@@ -11,7 +11,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.example.cynthia.relax.R;
 import com.example.cynthia.relax.activitis.main.MainActivity;
-import com.example.cynthia.relax.beans.User;
+import com.example.cynthia.relax.beans.UserBean;
 import com.example.cynthia.relax.presenters.LoginPresenter;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -60,8 +60,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     }
 
     @Override
-    public void showSuccessMsg(User user) {
-        Toast.makeText(LoginActivity.this, "User " + user.getPhone() + " Login Sccess!", Toast.LENGTH_SHORT).show();
+    public void showSuccessMsg(int userId) {
+        Toast.makeText(LoginActivity.this, "UserBean " + userId + " Login Success!", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
     }
