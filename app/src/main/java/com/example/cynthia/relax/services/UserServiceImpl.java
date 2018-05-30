@@ -11,6 +11,11 @@ public class UserServiceImpl implements IUserService{
         return null;
     }
 
+    public Call<Integer> register(String nickname, String realname, String phone, String password) {
+
+        return null;
+    }
+
     @Override
     public Call<Integer> getUserId(String phone, String password) {
         return null;
