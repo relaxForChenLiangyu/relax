@@ -26,8 +26,18 @@ public class LoginPresenter {
             public void onResponse(Call<Integer> call, Response<Integer> response){
                 try {
                     int userId = response.body();
-                    loginView.saveUserIdToSharedPreferences(userId);
-                    loginView.showSuccessMsg(userId);
+                    switch (userId){
+                        case -1:
+                            loginView.showFailedMsg("该账户不存在");
+                            break;
+                        case 0:
+                            loginView.showFailedMsg("账号或密码错误");
+                            break;
+                        default:
+                            loginView.saveUserIdToSharedPreferences(userId);
+                            loginView.showSuccessMsg(userId);
+                            break;
+                    }
                     loginView.hideLoading();
                 } catch (Exception e) {
                     e.printStackTrace();

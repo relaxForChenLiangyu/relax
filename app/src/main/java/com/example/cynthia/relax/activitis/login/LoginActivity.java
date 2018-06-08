@@ -34,8 +34,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     private SharedPreferences sharedPreferences;
     private LoginPresenter loginPresenter;
-    private String phone;
-    private String password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,19 +42,17 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         ButterKnife.bind(this);
         sharedPreferences = this.getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         loginPresenter = new LoginPresenter(this);
-        redictBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
     @OnClick(R.id.loginBtn)
-    public void onClick(View v){
+    public void login(View v){
         loginPresenter.login(getUserPhone(),getUserPassword());
+    }
 
+    @OnClick(R.id.redictBtn)
+    public void skip(View v){
+        Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -68,7 +64,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     @Override
     public void showSuccessMsg(int userId) {
-        Toast.makeText(LoginActivity.this, "User " + userId + " Login Success!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(LoginActivity.this, "用户" + userId + "登录成功!", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
     }
