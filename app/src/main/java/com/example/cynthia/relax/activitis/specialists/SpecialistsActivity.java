@@ -1,6 +1,7 @@
 package com.example.cynthia.relax.activitis.specialists;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -9,9 +10,11 @@ import android.view.View;
 import android.widget.*;
 import butterknife.Bind;
 import com.example.cynthia.relax.R;
+import com.example.cynthia.relax.activitis.specialist_detail.SpecialistDetailActivity;
 import com.example.cynthia.relax.beans.SpecialistBean;
 import com.example.cynthia.relax.presenters.SpecialistsPresenter;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,8 +47,7 @@ public class SpecialistsActivity extends AppCompatActivity implements Specialist
         //new Thread(new SpecialistThread()).start();
 
         gridLayoutManager = new GridLayoutManager(this,2);
-        specialistAdapter = new SpecialistAdapter(specialistBeans);
-
+        specialistAdapter = new SpecialistAdapter(specialistBeans,this);
 
         specialistRecyclerView.setLayoutManager(gridLayoutManager);
         specialistRecyclerView.setAdapter(specialistAdapter);

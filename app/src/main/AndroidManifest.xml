@@ -23,6 +23,8 @@
         </activity>
         <activity android:name=".activitis.specialists.SpecialistsActivity">
         </activity>
+        <activity android:name=".activitis.specialist_detail.SpecialistDetailActivity">
+        </activity>
     </application>
 
 </manifest>
