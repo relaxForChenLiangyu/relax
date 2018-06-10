@@ -4,7 +4,9 @@ package com.example.cynthia.relax.beans;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class UserBean {
+import java.io.Serializable;
+
+public class UserBean implements Serializable {
     private Integer userId;
 
     private String nickname;

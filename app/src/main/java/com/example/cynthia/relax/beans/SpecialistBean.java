@@ -1,8 +1,9 @@
 package com.example.cynthia.relax.beans;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class SpecialistBean {
+public class SpecialistBean implements Serializable {
     private Integer specialistId;
 
     private String phone;
@@ -20,6 +21,10 @@ public class SpecialistBean {
     private String introduction;
 
     private List<TypeBean> typeBeanList;
+
+    private List<CommentBean> commentBeanList;
+
+    private List<PreOrderStatusBean> preOrderStatusBeanList;
 
     public SpecialistBean() {
     }
@@ -101,5 +106,21 @@ public class SpecialistBean {
 
     public void setTypeBeanList(List<TypeBean> typeBeanList) {
         this.typeBeanList = typeBeanList;
+    }
+
+    public List<CommentBean> getCommentBeanList() {
+        return commentBeanList;
+    }
+
+    public void setCommentBeanList(List<CommentBean> commentBeanList) {
+        this.commentBeanList = commentBeanList;
+    }
+
+    public List<PreOrderStatusBean> getPreOrderStatusBeanList() {
+        return preOrderStatusBeanList;
+    }
+
+    public void setPreOrderStatusBeanList(List<PreOrderStatusBean> preOrderStatusBeanList) {
+        this.preOrderStatusBeanList = preOrderStatusBeanList;
     }
 }

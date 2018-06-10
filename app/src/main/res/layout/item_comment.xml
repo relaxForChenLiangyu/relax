@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            app:srcCompat="@mipmap/portrait"
+            android:id="@+id/sdUserPortrait"
+            />
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                <TextView
+                        android:text="昵称"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/sdUserName" android:textSize="14sp" android:textColor="@android:color/black"/>
+                <TextView
+                        android:text="评分"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/sdUserRating" android:textColor="@android:color/holo_orange_light"/>
+            </LinearLayout>
+            <TextView
+                    android:text="评论时间"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/sdUserCommentTime" android:textAlignment="textEnd" android:textSize="12sp"/>
+        </LinearLayout>
+        <TextView
+                android:text="评论内容"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:id="@+id/sdUserComment" android:textColor="@android:color/black"/>
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                app:srcCompat="@android:color/darker_gray"
+                android:id="@+id/line"/>
+    </LinearLayout>
+</LinearLayout>
