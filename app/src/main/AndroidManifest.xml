@@ -12,17 +12,26 @@
             android:theme="@style/AppTheme">
         <activity android:name=".activitis.login.LoginActivity">
         </activity>
-        <activity android:name=".activitis.main.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+
+        <activity android:name=".activitis.main.MainActivity">
         </activity>
+
+
         <activity android:name=".activitis.register.RegisterActivity">
         </activity>
         <activity android:name=".activitis.specialists.SpecialistsActivity">
         </activity>
+
+        <activity android:name=".activitis.message.MessageActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+
     </application>
 
 </manifest>
