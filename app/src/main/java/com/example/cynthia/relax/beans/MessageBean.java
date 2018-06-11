@@ -1,30 +1,36 @@
 package com.example.cynthia.relax.beans;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class MessageBean implements Serializable {
-    public static final int TYPE_RECEIVED = 0;
-    public static final int TYPE_SENT = 1;
+
     private int type;
-    public int getType() {
-        return type;
-    }
-
-    public MessageBean(String context, int type){
-        this.content = context;
-        this.type = type;
-    }
-    public void setType(int type) {
-        this.type = type;
-    }
-
     private int msgId;
     private int receiverId;
     private int senderId;
     private String content;
-    private Date createTime;
+    private String createTime;
 
+
+    public MessageBean(){
+
+    }
+    public MessageBean(String context, int type){
+        this.content = context;
+        this.type = type;
+    }
+    public MessageBean(String data, int number,String time) {
+        this.content = data;
+        this.type = number;
+        this.createTime = time;
+    }
+
+    public int getType() {
+        return type;
+    }
+    public void setType(int type) {
+        this.type = type;
+    }
     public int getMsgId() {
         return msgId;
     }
@@ -57,11 +63,11 @@ public class MessageBean implements Serializable {
         this.content = content;
     }
 
-    public Date getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 }
