@@ -5,6 +5,8 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
+import java.util.List;
+
 public interface IUserService {
     @GET("user/login")
     Call<Integer> getUserInfo(@Query("phone") String phone, @Query("password") String password);
@@ -14,6 +16,9 @@ public interface IUserService {
 
     @GET("user/getUserId")
     Call<Integer> getUserId(@Query("phone") String phone, @Query("password") String password);
+
+    @GET("user/getTypes")
+    Call<List<Integer>> getTypes(@Query("specialistId") String specialistId);
 
     @GET("user/getCurrentUserInfo")
     Call<UserBean> getCurrentUserInfo(@Query("userId") Integer userId);
