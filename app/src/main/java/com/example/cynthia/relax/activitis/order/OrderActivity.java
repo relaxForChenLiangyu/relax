@@ -24,7 +24,7 @@ import java.util.Date;
 import java.util.List;
 
 public class OrderActivity extends AppCompatActivity implements OrderView {
-    String[] timeDots = {"10:00", "11:00", "13:00", "14:00", "15:00", "16:00", "17:00", "19:00", "20:00"};
+    String[] timeDots = {"10:00", "11:00", "13:00", "14:00", "15:00", "16:00", "17:00", "19:00", "20:00", "21:00"};
     DateFormat df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
     Date dateStartTime = new Date();
     Date dateEndTime = new Date();
@@ -135,7 +135,7 @@ public class OrderActivity extends AppCompatActivity implements OrderView {
             } else if (everySpot[i] == '0' && i < 5 && i > 0) {
                 starts.add(timeDots[i + 1]);
             } else if (everySpot[i] == '0' && i > 4) {
-                starts.add(timeDots[7]);
+                starts.add(timeDots[i + 2]);
             }
         }
         final String[] startTimes = arrayToString(starts);
@@ -161,15 +161,18 @@ public class OrderActivity extends AppCompatActivity implements OrderView {
                         setEndTimes(new String[]{"17:00"});
                         break;
                     case "19:00":
-                        setEndTimes(new String[]{"20:00"});
+                        if (everySpot[6] == 0)
+                            setEndTimes(new String[]{"20:00", "21:00"});
+                        else
+                            setEndTimes(new String[]{"20:00"});
                         break;
                     default:
                         final List<String> endTime = new ArrayList<>();
-                        for (int i = 0; i < timeDots.length; i++) {
+                        for (int i = 2; i < 5; i++) {
                             if (startTimes[position].equals(timeDots[i])) {
-                                for (int j = 0; j < 6 - i; j++) {
-                                    if (everySpot[i + j - 1] == '0') {
-                                        endTime.add(timeDots[i + j + 1]);
+                                for (int j = i - 1; j < 5; j++) {
+                                    if (everySpot[j] == '0') {
+                                        endTime.add(timeDots[j + 2]);
                                     } else
                                         break;
                                 }
