@@ -1,9 +1,12 @@
 package com.example.cynthia.relax.services;
 
 import com.example.cynthia.relax.beans.UserBean;
+import com.example.cynthia.relax.utils.BaseJson;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
+
+import java.util.List;
 
 public interface IUserService {
     @GET("user/login")
@@ -14,4 +17,7 @@ public interface IUserService {
 
     @GET("user/getUserId")
     Call<Integer> getUserId(@Query("phone") String phone, @Query("password") String password);
+
+    @GET("user/getTypes")
+    Call<List<Integer>> getTypes(@Query("specialistId") String specialistId);
 }

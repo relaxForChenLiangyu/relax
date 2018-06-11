@@ -34,14 +34,6 @@ public class BaseJson implements Serializable, Cloneable {
         this(new JSONObject(jsonObject));
     }
 
-    public String getSingleStringResult() throws JSONException {
-        return ((JSONObject)obj).getString("singleResult");
-    }
-
-    public int getSingleIntegerResult() throws JSONException {
-        return Integer.parseInt(getSingleStringResult());
-    }
-
     public String getReturnCode() {
         return returnCode;
     }
