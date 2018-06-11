@@ -11,8 +11,10 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.example.cynthia.relax.R;
+import com.example.cynthia.relax.activitis.historyorder.HistoryOrderView;
 import com.example.cynthia.relax.activitis.main.MainActivity;
 import com.example.cynthia.relax.activitis.register.RegisterActivity;
+import com.example.cynthia.relax.presenters.HistoryOrderPresenter;
 import com.example.cynthia.relax.presenters.LoginPresenter;
 
 
@@ -47,12 +49,15 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     @OnClick(R.id.loginBtn)
     public void login(View v){
         loginPresenter.login(getUserPhone(),getUserPassword());
+<<<<<<< HEAD
     }
 
     @OnClick(R.id.redictBtn)
     public void skip(View v){
         Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
         startActivity(intent);
+=======
+>>>>>>> 7829817061687889a85e2bd1a65ca3fd03cb2d04
     }
 
     @Override
