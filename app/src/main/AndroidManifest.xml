@@ -43,6 +43,8 @@
         </activity>
         <activity android:name=".activitis.personal.PersonalCommentsActivity">
         </activity>
+        <activity android:name=".activitis.message.MessageActivity">
+        </activity>
     </application>
 
 </manifest>
