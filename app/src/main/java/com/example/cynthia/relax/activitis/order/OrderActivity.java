@@ -70,8 +70,8 @@ public class OrderActivity extends AppCompatActivity implements OrderView {
         userId = sharedPreferences.getInt("userId", 1);
         intent = getIntent();
         bundle = intent.getExtras();
-        specialistBean = (SpecialistBean) bundle.getSerializable("SpecialistBean");
-        OspecialistName.setText(specialistBean.getSpecialistName());
+        specialistBean = (SpecialistBean) bundle.getSerializable("specialistBean");
+        OspecialistName.setText(specialistBean.getRealName());
         selectedTime = intent.getStringExtra("selectedTimeSlot");
         orderPresenter.setType(specialistBean.getSpecialistId());
         Calendar now = Calendar.getInstance();

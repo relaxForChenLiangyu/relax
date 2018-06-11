@@ -12,6 +12,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import com.example.cynthia.relax.R;
 import com.example.cynthia.relax.activitis.main.MainActivity;
+import com.example.cynthia.relax.activitis.order.OrderActivity;
 import com.example.cynthia.relax.beans.CommentBean;
 import com.example.cynthia.relax.beans.PreOrderStatusBean;
 import com.example.cynthia.relax.beans.SpecialistBean;
@@ -197,7 +198,7 @@ public class SpecialistDetailActivity extends AppCompatActivity implements Speci
                                         bundle.putString("selectedTimeSlot",timeSlotList.get(pos_r-1));
                                         bundle.putString("selectedDayStatus",selectedDayStatus);
                                         intent.putExtras(bundle);
-                                        intent.setClass(SpecialistDetailActivity.this, MainActivity.class);//待修改
+                                        intent.setClass(SpecialistDetailActivity.this, OrderActivity.class);//待修改
                                         startActivity(intent);
                                     }
                                 });

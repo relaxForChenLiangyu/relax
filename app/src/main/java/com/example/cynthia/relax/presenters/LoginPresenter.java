@@ -35,7 +35,7 @@ public class LoginPresenter {
                             loginView.showFailedMsg("账号或密码错误");
                             break;
                         default:
-                            loginView.saveUserIdToSharedPreferences(userId);
+                            loginView.saveUserIdAndIdentityToSharedPreferences(userId,0);
                             loginView.showSuccessMsg(userId);
                             break;
                     }

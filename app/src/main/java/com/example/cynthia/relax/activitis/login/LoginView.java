@@ -20,6 +20,6 @@ public interface LoginView {
     void showSuccessMsg(int userId);
     void showFailedMsg(String s);
 
-    void saveUserIdToSharedPreferences(int userId);
+    void saveUserIdAndIdentityToSharedPreferences(int userId,int identity);
 
 }

@@ -49,21 +49,19 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     @OnClick(R.id.loginBtn)
     public void login(View v){
         loginPresenter.login(getUserPhone(),getUserPassword());
-<<<<<<< HEAD
     }
 
     @OnClick(R.id.redictBtn)
     public void skip(View v){
         Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
         startActivity(intent);
-=======
->>>>>>> 7829817061687889a85e2bd1a65ca3fd03cb2d04
     }
 
     @Override
-    public void saveUserIdToSharedPreferences(int userId){
+    public void saveUserIdAndIdentityToSharedPreferences(int userId,int identity){
         SharedPreferences.Editor editor = sharedPreferences.edit();//获取编辑器
         editor.putInt("userID", userId);
+        editor.putInt("identity",identity);
         editor.commit();
     }
 

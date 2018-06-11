@@ -1,6 +1,8 @@
 package com.example.cynthia.relax.activitis.personal;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -35,6 +37,7 @@ public class QualifyActivity extends AppCompatActivity implements QualifyView{
 
     private UserBean userBean;
     private PersonalPresenter personalPresenter;
+    private SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +45,7 @@ public class QualifyActivity extends AppCompatActivity implements QualifyView{
         ButterKnife.bind(this);
 
         personalPresenter = new PersonalPresenter(this);
+        sharedPreferences = this.getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         userBean = (UserBean)bundle.getSerializable("userBean");
@@ -79,5 +83,13 @@ public class QualifyActivity extends AppCompatActivity implements QualifyView{
     @Override
     public void showFailedMsg(String msg) {
         Toast.makeText(QualifyActivity.this, msg, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void saveIdentityToSharedPreferences(int identity) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();//获取编辑器
+        editor.remove("identity");
+        editor.putInt("identity",1);
+        editor.commit();
     }
 }

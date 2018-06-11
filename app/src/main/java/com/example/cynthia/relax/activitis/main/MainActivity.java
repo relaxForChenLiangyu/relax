@@ -22,7 +22,9 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.example.cynthia.relax.R;
+import com.example.cynthia.relax.activitis.historyorder.HistoryOrderActivity;
 import com.example.cynthia.relax.activitis.login.LoginActivity;
+import com.example.cynthia.relax.activitis.order.OrderActivity;
 import com.example.cynthia.relax.activitis.personal.PersonalActivity;
 import com.example.cynthia.relax.activitis.personal.PersonalCommentsActivity;
 import com.example.cynthia.relax.activitis.personal.QualifyActivity;
@@ -35,6 +37,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class MainActivity extends AppCompatActivity implements MainView{
     @Bind(R.id.preOrder)
     ImageButton preOrderBtn;
+
+    @Bind(R.id.myOrders)
+    ImageButton myOrdersBtn;
 
     @Bind(R.id.mainLogin)
     Button mainLogin;
@@ -83,6 +88,15 @@ public class MainActivity extends AppCompatActivity implements MainView{
                 Intent intent = new Intent();
                 switch (item.getItemId()){
                     case R.id.navMyOrders:
+                        if(curUserId==0)
+                            intent.setClass(MainActivity.this, LoginActivity.class);
+                        else {
+                            Bundle bundle = new Bundle();
+                            bundle.putSerializable("userBean",userBean);
+                            intent.putExtras(bundle);
+                            intent.setClass(MainActivity.this, HistoryOrderActivity.class);
+                        }
+                        startActivity(intent);
                         break;
                     case R.id.navMyInfo:
                         if(curUserId==0)
@@ -156,9 +170,16 @@ public class MainActivity extends AppCompatActivity implements MainView{
     }
 
     @OnClick(R.id.preOrder)
-    public void skip(View view){
+    public void preOrder(View view){
         Intent intent = new Intent();
         intent.setClass(MainActivity.this, SpecialistsActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.myOrders)
+    public void myOrders(View view){
+        Intent intent = new Intent();
+        intent.setClass(MainActivity.this, HistoryOrderActivity.class);
         startActivity(intent);
     }
 
