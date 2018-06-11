@@ -5,8 +5,10 @@ import com.example.cynthia.relax.beans.SpecialistBean;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
+import retrofit2.http.QueryMap;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ISpecialistService {
     @GET("specialist/getSortedSpecialistsByType")
@@ -15,4 +17,6 @@ public interface ISpecialistService {
     @GET("specialist/getSpecialistBeanBySpecialistId")
     Call<SpecialistBean> getSpecialistBeanBySpecialistId(@Query("specialistId") Integer specialistId);
 
+    @GET("specialist/submitQualification")
+    Call<Integer> submitQualification(@QueryMap Map<String,Object> resume);
 }

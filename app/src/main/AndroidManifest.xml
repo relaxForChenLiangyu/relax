@@ -25,6 +25,14 @@
         </activity>
         <activity android:name=".activitis.specialist_detail.SpecialistDetailActivity">
         </activity>
+        <activity android:name=".activitis.personal.PersonalActivity">
+        </activity>
+        <activity android:name=".activitis.personal.EditPasswordActivity">
+        </activity>
+        <activity android:name=".activitis.personal.QualifyActivity">
+        </activity>
+        <activity android:name=".activitis.personal.PersonalCommentsActivity">
+        </activity>
     </application>
 
 </manifest>

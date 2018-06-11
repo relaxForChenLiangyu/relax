@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import java.util.concurrent.TimeUnit;
 
 public class RetrofitServiceManager {
-    private static final int DEFAULT_TIME_OUT = 5;//超时时间 5s
+    private static final int DEFAULT_TIME_OUT = 10;//超时时间 10s
     private static final int DEFAULT_READ_TIME_OUT = 10;
     private Retrofit mRetrofit;
     protected static final String path = "http://10.0.2.2:10000/api/";

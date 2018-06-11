@@ -156,13 +156,13 @@ public class SpecialistDetailActivity extends AppCompatActivity implements Speci
                     }
                     else {
                         PreOrderStatusBean statusBean = data.get((curDay-2+col)+7*(row-1));
-                        if(statusBean.getIsFree()==0) {
+                        if(statusBean.getIsFree().equals(0)) {
                             textView.setText("休息");
                             textView.setBackgroundColor(Color.rgb(234,234,234));
                             nextWeekStatus+="2";
                         }
                         else{
-                            if(statusBean.getIsOrdered()==1) {
+                            if(statusBean.getIsOrdered().equals(1)) {
                                 textView.setText("忙碌");
                                 textView.setBackgroundColor(Color.rgb(234,234,234));
                                 nextWeekStatus+="1";

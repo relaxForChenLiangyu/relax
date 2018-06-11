@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.cynthia.relax.activitis.personal.PersonalCommentsActivity"
+        android:orientation="vertical">
+
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:id="@+id/specialistCommentLayout"
+            android:background="@color/myColorPrimary"
+            android:visibility="gone"
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+                android:text="100条"
+                android:padding="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/commentNum" android:layout_weight="1"
+                android:textAlignment="center" android:textColor="@android:color/holo_orange_dark"
+                android:textSize="24sp"/>
+        <ImageView
+                android:layout_width="1dp"
+                android:layout_height="match_parent" app:srcCompat="@android:color/darker_gray"
+                android:id="@+id/imageView3"/>
+        <TextView
+                android:text="5.0分"
+                android:padding="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/rating" android:layout_weight="1"
+                android:textAlignment="center"
+                android:textColor="@android:color/holo_orange_dark" android:textSize="24sp"/>
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+            android:layout_margin="10dp"
+            android:id="@+id/personalCommentsList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+</LinearLayout>
