@@ -4,6 +4,7 @@ import android.os.Handler;
 import com.example.cynthia.relax.services.RetrofitServiceManager;
 import com.example.cynthia.relax.services.IUserService;
 import com.example.cynthia.relax.activitis.login.LoginView;
+import com.example.cynthia.relax.utils.BaseJson;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
