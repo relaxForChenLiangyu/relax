@@ -1,8 +1,10 @@
 package com.example.cynthia.relax.beans;
 
+import java.io.Serializable;
+<<<<<<< HEAD
 import java.util.List;
 
-public class SpecialistBean {
+public class SpecialistBean implements Serializable {
     private Integer specialistId;
 
     private String phone;
@@ -21,7 +23,19 @@ public class SpecialistBean {
 
     private List<TypeBean> typeBeanList;
 
+    private List<CommentBean> commentBeanList;
+
+    private List<PreOrderStatusBean> preOrderStatusBeanList;
+
     public SpecialistBean() {
+    }
+
+    public SpecialistBean(Integer specialistId, String realName, String qualification, Integer employLength, String introduction) {
+        this.specialistId = specialistId;
+        this.realName = realName;
+        this.qualification = qualification;
+        this.employLength = employLength;
+        this.introduction = introduction;
     }
 
     public SpecialistBean(String realName, Double rating, String qualification, Integer employLength) {
@@ -29,6 +43,19 @@ public class SpecialistBean {
         this.rating = rating;
         this.qualification = qualification;
         this.employLength = employLength;
+=======
+
+public class SpecialistBean implements Serializable {
+    private String specialistName;
+    private Integer specialistId;
+
+    public String getSpecialistName() {
+        return specialistName;
+    }
+
+    public void setSpecialistName(String specialistName) {
+        this.specialistName = specialistName;
+>>>>>>> 7829817061687889a85e2bd1a65ca3fd03cb2d04
     }
 
     public Integer getSpecialistId() {
@@ -38,6 +65,7 @@ public class SpecialistBean {
     public void setSpecialistId(Integer specialistId) {
         this.specialistId = specialistId;
     }
+<<<<<<< HEAD
 
     public String getPhone() {
         return phone;
@@ -102,4 +130,22 @@ public class SpecialistBean {
     public void setTypeBeanList(List<TypeBean> typeBeanList) {
         this.typeBeanList = typeBeanList;
     }
+
+    public List<CommentBean> getCommentBeanList() {
+        return commentBeanList;
+    }
+
+    public void setCommentBeanList(List<CommentBean> commentBeanList) {
+        this.commentBeanList = commentBeanList;
+    }
+
+    public List<PreOrderStatusBean> getPreOrderStatusBeanList() {
+        return preOrderStatusBeanList;
+    }
+
+    public void setPreOrderStatusBeanList(List<PreOrderStatusBean> preOrderStatusBeanList) {
+        this.preOrderStatusBeanList = preOrderStatusBeanList;
+    }
+=======
+>>>>>>> 7829817061687889a85e2bd1a65ca3fd03cb2d04
 }

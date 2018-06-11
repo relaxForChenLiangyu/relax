@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical"
+              android:descendantFocusability="blocksDescendants"
               android:padding="10dp"
               android:layout_margin="1dp"
               android:background="#fff"
@@ -11,17 +12,20 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginTop="5dp"
+            android:focusable="false"
             app:srcCompat="@mipmap/portrait"
             android:id="@+id/specialistItemPortrait"/>
     <TextView
             android:text="专家姓名"
             android:layout_marginTop="5dp"
             android:layout_width="match_parent"
+            android:focusable="false"
             android:layout_height="wrap_content" android:id="@+id/specialistItemName" android:textAlignment="center"
             android:textColor="@android:color/black" android:textSize="18sp"/>
     <TextView
             android:text="评分"
             android:layout_marginTop="5dp"
             android:layout_width="match_parent"
+            android:focusable="false"
             android:layout_height="wrap_content" android:id="@+id/specialistItemRating" android:textAlignment="center"/>
 </LinearLayout>

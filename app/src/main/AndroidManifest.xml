@@ -13,24 +13,53 @@
         <activity android:name=".activitis.login.LoginActivity">
         </activity>
 
+        <activity android:name=".activitis.main.MainActivity">
+        </activity>
+        <activity android:name=".activitis.register.RegisterActivity">
+        </activity>
+        <activity android:name=".activitis.historyorder.HistoryOrderActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+
 
         <activity android:name=".activitis.main.MainActivity">
         </activity>
 
 
         <activity android:name=".activitis.register.RegisterActivity">
+
+        <activity
+                android:name=".activitis.orderdetail.OrderDetailActivity"
+                android:screenOrientation="portrait">
         </activity>
+        <activity android:name=".activitis.comment.CommentActivity">
+
+        </activity>
+        <activity android:name=".activitis.order.OrderActivity">
+
+
         <activity android:name=".activitis.specialists.SpecialistsActivity">
         </activity>
 
-        <activity android:name=".activitis.message.MessageActivity">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+        <activity android:name=".activitis.message.MessageActivity">
         </activity>
 
+
+
+        <activity android:name=".activitis.specialist_detail.SpecialistDetailActivity">
+        </activity>
+        <activity android:name=".activitis.personal.PersonalActivity">
+        </activity>
+        <activity android:name=".activitis.personal.EditPasswordActivity">
+        </activity>
+        <activity android:name=".activitis.personal.QualifyActivity">
+        </activity>
+        <activity android:name=".activitis.personal.PersonalCommentsActivity">
+
+
+        </activity>
 
     </application>
 

@@ -4,7 +4,9 @@ package com.example.cynthia.relax.beans;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class UserBean {
+import java.io.Serializable;
+
+public class UserBean implements Serializable {
     private Integer userId;
 
     private String nickname;
@@ -27,6 +29,17 @@ public class UserBean {
 
     }
 
+    public UserBean(JSONObject jsonObject) throws JSONException{
+        this.userId = jsonObject.getInt("userId");
+        this.nickname = jsonObject.getString("nickname");
+        this.phone = jsonObject.getString("phone");
+        this.password = jsonObject.getString("password");
+        this.realName = jsonObject.getString("realName");
+        this.identity = jsonObject.getInt("identity");
+        this.remainder = jsonObject.getDouble("reminder");
+        this.portrait = jsonObject.getString("portrait");
+        this.relaxDegree = jsonObject.getDouble("relaxDegree");
+    }
     public UserBean(Integer userId,String phone, String password) {
         this.userId = userId;
         this.nickname = "";

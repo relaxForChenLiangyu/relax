@@ -1,6 +1,8 @@
 package com.example.cynthia.relax.beans;
 
-public class TypeBean {
+import java.io.Serializable;
+
+public class TypeBean implements Serializable{
     private Integer typeId;
 
     private String title;

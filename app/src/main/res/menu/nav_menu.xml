@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navMyOrders"
+            android:title="我的预约">
+        </item>
+        <item
+            android:id="@+id/navMyInfo"
+            android:title="我的信息">
+        </item>
+        <item
+                android:id="@+id/navMyComment"
+                android:title="我的评价">
+        </item>
+        <item
+            android:id="@+id/navIdentify"
+            android:title="专家认证">
+        </item>
+        <item
+            android:id="@+id/contactUs"
+            android:title="联系我们">
+        </item>
+    </group>
+</menu>
