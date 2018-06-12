@@ -45,6 +45,14 @@
         </activity>
         <activity android:name=".activitis.message.MessageActivity">
         </activity>
+        <activity android:name=".activitis.post.MoreReplyActivity">
+        </activity>
+        <activity android:name=".activitis.post.PostDetailActivity">
+        </activity>
+        <activity android:name=".activitis.post.PostListActivity">
+        </activity>
+        <activity android:name=".activitis.post.SendPostActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -26,9 +26,14 @@ public class RegisterPresenter {
             public void onResponse(Call<Integer> call, Response<Integer> response){
                 try {
                     int userId = response.body();
-                    registerView.saveUserIdToSharedPreferences(userId);
-                    registerView.showSuccessMsg(userId);
-                    registerView.hideLoading();
+                    if(userId == -1) {
+                        registerView.showFailedMsg("该手机号已经被注册");
+                        registerView.hideLoading();
+                    }else {
+                        registerView.saveUserIdToSharedPreferences(userId);
+                        registerView.showSuccessMsg(userId);
+                        registerView.hideLoading();
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
