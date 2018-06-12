@@ -62,7 +62,7 @@ public class SendPostActivity extends AppCompatActivity implements SendPostView{
     @Override
     public void redict() {
         Intent intent = new Intent();
-        intent.setClass(SendPostActivity.this, MainActivity.class);
+        intent.setClass(SendPostActivity.this, PostListActivity.class);
         startActivity(intent);
     }
 

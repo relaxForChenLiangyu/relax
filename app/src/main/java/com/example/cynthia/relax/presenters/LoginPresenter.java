@@ -1,6 +1,7 @@
 package com.example.cynthia.relax.presenters;
 
 import android.os.Handler;
+import com.example.cynthia.relax.beans.UserBean;
 import com.example.cynthia.relax.services.RetrofitServiceManager;
 import com.example.cynthia.relax.services.IUserService;
 import com.example.cynthia.relax.activitis.login.LoginView;
@@ -21,12 +22,14 @@ public class LoginPresenter {
     public void login(String phone,String password) {
         loginView.showLoading();
         IUserService userService = RetrofitServiceManager.getInstance().create(IUserService.class);
-        Call<Integer> call = userService.getUserInfo(phone, password);
-        call.enqueue(new Callback<Integer>() {
+        Call<UserBean> call = userService.getUserInfo(phone, password);
+        call.enqueue(new Callback<UserBean>() {
             @Override
-            public void onResponse(Call<Integer> call, Response<Integer> response){
+            public void onResponse(Call<UserBean> call, Response<UserBean> response){
                 try {
-                    int userId = response.body();
+                    UserBean userBean = response.body();
+                    int userId = userBean.getUserId();
+                    int identity = userBean.getIdentity();
                     switch (userId){
                         case -1:
                             loginView.showFailedMsg("该账户不存在");
@@ -35,8 +38,8 @@ public class LoginPresenter {
                             loginView.showFailedMsg("账号或密码错误");
                             break;
                         default:
-                            loginView.saveUserIdAndIdentityToSharedPreferences(userId,0);
-                            loginView.showSuccessMsg(userId);
+                            loginView.saveUserIdAndIdentityToSharedPreferences(userId,identity);
+                            loginView.showSuccessMsg(userBean.getNickname());
                             break;
                     }
                     loginView.hideLoading();
@@ -45,7 +48,7 @@ public class LoginPresenter {
                 }
             }
             @Override
-            public void onFailure(Call<Integer> call, Throwable t) {
+            public void onFailure(Call<UserBean> call, Throwable t) {
                 loginView.showFailedMsg("登录失败");
                 loginView.hideLoading();
             }

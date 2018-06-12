@@ -14,6 +14,14 @@
             android:theme="?attr/actionBarTheme"
             android:minHeight="?attr/actionBarSize"
             android:id="@+id/toolbar"/>
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@mipmap/refresh_24px"
+            android:id="@+id/refresh"
+            android:layout_gravity="right"
+            android:layout_margin="10dp"
+            android:background="@android:color/transparent"/>
     <android.support.v7.widget.RecyclerView
             android:id="@+id/orders_view"
             android:layout_width="match_parent"

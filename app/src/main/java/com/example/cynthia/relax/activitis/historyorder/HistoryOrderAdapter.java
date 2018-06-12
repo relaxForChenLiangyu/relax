@@ -3,6 +3,7 @@ package com.example.cynthia.relax.activitis.historyorder;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import com.example.cynthia.relax.R;
 import com.example.cynthia.relax.activitis.orderdetail.OrderDetailActivity;
+import com.example.cynthia.relax.activitis.specialist_detail.SpecialistDetailActivity;
 import com.example.cynthia.relax.beans.OrderBean;
 import com.example.cynthia.relax.beans.OrderStatus;
 import com.example.cynthia.relax.beans.Type;
@@ -23,7 +25,7 @@ public class HistoryOrderAdapter extends RecyclerView.Adapter<HistoryOrderAdapte
 
     @Override
     public void onClick(View v) {
-        skip(mOrderList.get((int)v.getTag()).getOrderId().toString());
+        skip(mOrderList.get((int)v.getTag()));
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
@@ -71,9 +73,17 @@ public class HistoryOrderAdapter extends RecyclerView.Adapter<HistoryOrderAdapte
         return mOrderList.size();
     }
 
-    public void skip(String orderId){
-        Intent intent = new Intent(context, OrderDetailActivity.class);
-        intent.putExtra("orderId", orderId);
-        context.startActivity(intent);
+    public void skip(OrderBean orderBean){
+        Intent intent = new Intent();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("orderBean", orderBean);
+        intent.putExtra("orderId", orderBean.getOrderId());
+        intent.putExtras(bundle);
+        intent.setClass(context, OrderDetailActivity.class);
+        startActivity(intent);
+    }
+
+    public void startActivity(Intent intent) {
+        this.context.startActivity(intent);
     }
 }

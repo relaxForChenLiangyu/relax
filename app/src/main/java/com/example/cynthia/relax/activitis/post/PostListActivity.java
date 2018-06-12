@@ -24,7 +24,7 @@ public class PostListActivity extends AppCompatActivity implements PostView{
     Button questionBtn;
 
     @Bind(R.id.refresh)
-    Button refresh;
+    ImageButton refresh;
 
     List<PostBean> postBeans;
 
@@ -63,6 +63,7 @@ public class PostListActivity extends AppCompatActivity implements PostView{
 
         postRecyclerView.setLayoutManager(gridLayoutManager);
         postRecyclerView.setAdapter(postAdapter);
+
         getPostListData();
     }
 
@@ -83,7 +84,7 @@ public class PostListActivity extends AppCompatActivity implements PostView{
     public void setPostListData(List<PostBean> postBeans){
         this.postBeans = postBeans;
         postAdapter.setPostBeanList(this.postBeans);
-
+        postAdapter.notifyDataSetChanged();
     }
 
     @Override

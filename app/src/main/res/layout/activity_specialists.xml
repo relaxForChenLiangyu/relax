@@ -23,8 +23,8 @@
         <ImageButton
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                app:srcCompat="@android:drawable/ic_menu_search"
-                android:id="@+id/skipToSearchButton" android:background="@android:color/transparent"/>
+                app:srcCompat="@mipmap/refresh_24px"
+                android:id="@+id/refresh" android:background="@android:color/transparent"/>
     </LinearLayout>
     <ImageView
             android:layout_width="match_parent"

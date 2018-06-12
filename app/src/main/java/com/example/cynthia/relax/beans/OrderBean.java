@@ -1,6 +1,8 @@
 package  com.example.cynthia.relax.beans;
 
-public class OrderBean {
+import java.io.Serializable;
+
+public class OrderBean implements Serializable{
     private Integer orderId;
 
     private Integer patientId;

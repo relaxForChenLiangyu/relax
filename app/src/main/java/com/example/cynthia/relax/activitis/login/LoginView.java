@@ -17,7 +17,7 @@ public interface LoginView {
     void hideLoading();
 
     //登录成功或失败后，返回信息的方法
-    void showSuccessMsg(int userId);
+    void showSuccessMsg(String nickName);
     void showFailedMsg(String s);
 
     void saveUserIdAndIdentityToSharedPreferences(int userId,int identity);

@@ -1,14 +1,17 @@
 package com.example.cynthia.relax.activitis.message;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import com.example.cynthia.relax.R;
 import com.example.cynthia.relax.beans.MessageBean;
 
@@ -28,7 +31,7 @@ public class MessageActivity extends AppCompatActivity {
     private RecyclerView msgRecyclerView;
     private MsgAdapter adapter ;
     private Socket socket;
-
+    private TextView toolbarTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,11 @@ public class MessageActivity extends AppCompatActivity {
         inputText = (EditText) findViewById(R.id.msg_input);
         send = (Button)findViewById(R.id.btn_send);
         msgRecyclerView = (RecyclerView)findViewById(R.id.msg_recycler);
+        toolbarTitle = (TextView)findViewById(R.id.title_toolbar);
+
+        Intent intent = getIntent();
+        String dialogist = intent.getStringExtra("extra_dialogist");
+        toolbarTitle.setText(dialogist);
 
         msgList = new ArrayList<>();
         adapter = new MsgAdapter(this);
