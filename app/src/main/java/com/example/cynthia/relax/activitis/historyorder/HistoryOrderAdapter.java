@@ -31,9 +31,11 @@ public class HistoryOrderAdapter extends RecyclerView.Adapter<HistoryOrderAdapte
         TextView orderStatus;
         TextView partnerName;
         TextView sum;
+        View view;
 
         public ViewHolder(View view) {
             super(view);
+            this.view = view;
             consultingType = (TextView) view.findViewById(R.id.consultingType);
             orderStatus = (TextView) view.findViewById(R.id.orderStatus);
             partnerName = (TextView) view.findViewById(R.id.partnerName);
@@ -57,6 +59,7 @@ public class HistoryOrderAdapter extends RecyclerView.Adapter<HistoryOrderAdapte
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         final OrderBean orderBean = mOrderList.get(position);
+        holder.view.setTag(position);
         holder.consultingType.setText(Type.getTypeByIndex(orderBean.getTypeId()));
         holder.orderStatus.setText(OrderStatus.getStatusByIndex(orderBean.getOrderStatus()));
         holder.partnerName.setText(orderBean.getPartnerName());
