@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:layout_margin="15dp">
+
+    <TextView
+            android:text="问题"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/title" android:textSize="14sp"
+            android:textStyle="bold"/>
+    <TextView
+            android:text="问题描述"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/content" android:textSize="12sp"/>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp">
+        <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content" android:id="@+id/blank" android:layout_weight="1"/>
+        <TextView
+                android:text="来自"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/from" android:layout_weight="1"
+                android:gravity="end" android:textSize="12sp"/>
+        <TextView
+                android:text="提问者"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/user" android:layout_weight="1"
+                android:textColor="@color/colorPrimary" android:gravity="end" android:textSize="12sp"/>
+        <TextView
+                android:text="提问时间"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/time" android:layout_weight="1"
+                android:gravity="end" android:textSize="12sp"/>
+    </LinearLayout>
+    <ImageView
+            android:layout_width="match_parent" android:layout_marginTop="15dp"
+            android:layout_height="1dp" app:srcCompat="@android:color/darker_gray"
+            android:id="@+id/imageView"/>
+</LinearLayout>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_margin="15dp"
+              tools:context="com.example.cynthia.relax.activitis.post.MoreReplyActivity">
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp" android:id="@+id/portrait"
+                android:layout_margin="15dp"
+                android:background="@mipmap/portrait"
+        />
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content" android:layout_weight="1">
+            <TextView
+                    android:text="用户名"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/userName" android:textSize="14sp"
+                    android:textColor="@color/colorPrimary"/>
+            <TextView
+                    android:text="回复内容"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/replyContent" android:textSize="14sp"/>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp">
+                <TextView
+                        android:text="回复时间"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:id="@+id/time" android:layout_weight="1"
+                        android:textSize="12sp"/>
+                <ImageButton
+                        android:layout_width="25dp"
+                        android:layout_height="20dp"
+                        android:id="@+id/replyBtn"
+                        android:background="@mipmap/reply"
+                />
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent" android:visibility="gone"
+                    android:layout_height="wrap_content" android:layout_marginTop="15dp"
+                    android:id="@+id/reReplyLayout">
+                <EditText
+                        android:layout_width="200dp"
+                        android:layout_height="100dp"
+                        android:inputType="textMultiLine"
+                        android:ems="10"
+                        android:id="@+id/editComment" style="@style/Widget.AppCompat.AutoCompleteTextView"
+                        android:textSize="14sp" android:hint="写回答"
+                        android:gravity="start"
+                        android:maxLines="4"/>
+                <Button
+                        android:text="发布"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:id="@+id/commentBtn" android:textSize="14sp"
+                        style="@style/Widget.AppCompat.Button"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp" app:srcCompat="@android:color/darker_gray"
+            android:layout_marginTop="15dp"
+            android:id="@+id/imageView1"/>
+    <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/reReplyList"/>
+
+</LinearLayout>

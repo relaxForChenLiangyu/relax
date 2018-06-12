@@ -28,6 +28,7 @@ import com.example.cynthia.relax.activitis.order.OrderActivity;
 import com.example.cynthia.relax.activitis.personal.PersonalActivity;
 import com.example.cynthia.relax.activitis.personal.PersonalCommentsActivity;
 import com.example.cynthia.relax.activitis.personal.QualifyActivity;
+import com.example.cynthia.relax.activitis.post.PostListActivity;
 import com.example.cynthia.relax.activitis.register.RegisterActivity;
 import com.example.cynthia.relax.activitis.specialists.SpecialistsActivity;
 import com.example.cynthia.relax.beans.UserBean;
@@ -55,6 +56,9 @@ public class MainActivity extends AppCompatActivity implements MainView{
 
     @Bind(R.id.nav_view)
     NavigationView navigationView;
+
+    @Bind(R.id.treeHole)
+    ImageButton treeHole;
 
     //@Bind(R.id.navUserName)
     TextView navUserName;
@@ -194,6 +198,13 @@ public class MainActivity extends AppCompatActivity implements MainView{
     public void register(View view){
         Intent intent = new Intent();
         intent.setClass(MainActivity.this, RegisterActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.treeHole)
+    public void post(View view){
+        Intent intent = new Intent();
+        intent.setClass(MainActivity.this, PostListActivity.class);
         startActivity(intent);
     }
 
