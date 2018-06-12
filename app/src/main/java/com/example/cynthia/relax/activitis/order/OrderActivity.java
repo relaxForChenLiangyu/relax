@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.*;
 import butterknife.Bind;
@@ -57,6 +58,8 @@ public class OrderActivity extends AppCompatActivity implements OrderView {
     Button OpayBtn;
     @Bind(R.id.OcancelBtn)
     Button OcancelBtn;
+    @Bind(R.id.toolbar)
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +67,7 @@ public class OrderActivity extends AppCompatActivity implements OrderView {
         setTitle("预约");
         setContentView(R.layout.activity_order);
         ButterKnife.bind(this);
+        setSupportActionBar(toolbar);
         orderPresenter = new OrderPresenter(this);
         Osum.setText("￥ 100");
         sharedPreferences = this.getSharedPreferences("userInfo", Context.MODE_PRIVATE);

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -50,6 +51,8 @@ public class OrderDetailActivity extends AppCompatActivity implements OrderDetai
     Button cancelBtn;
     @Bind(R.id.operateBtn)
     Button operateBtn;
+    @Bind(R.id.toolbar)
+    Toolbar toolbar;
 
     private SharedPreferences sharedPreferences;
     private OrderDetailPresenter orderDetailPresenter;
@@ -68,6 +71,7 @@ public class OrderDetailActivity extends AppCompatActivity implements OrderDetai
         setTitle("订单详情");
         setContentView(R.layout.activity_order_detail);
         ButterKnife.bind(this);
+        setSupportActionBar(toolbar);
         sharedPreferences = this.getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         orderDetailPresenter = new OrderDetailPresenter(this);
         intent = getIntent();

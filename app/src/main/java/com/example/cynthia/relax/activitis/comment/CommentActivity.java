@@ -3,6 +3,7 @@ package com.example.cynthia.relax.activitis.comment;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.*;
 import butterknife.Bind;
@@ -25,6 +26,8 @@ public class CommentActivity extends AppCompatActivity implements CommentView {
     Button commentBtn;
     @Bind(R.id.cancelComment)
     Button cancelComment;
+    @Bind(R.id.toolbar)
+    Toolbar toolbar;
 
     Intent intent;
     CommentPresenter commentPresenter;
@@ -35,6 +38,7 @@ public class CommentActivity extends AppCompatActivity implements CommentView {
         setTitle("订单评价");
         setContentView(R.layout.activity_comment);
         ButterKnife.bind(this);
+        setSupportActionBar(toolbar);
         commentPresenter = new CommentPresenter(this);
         intent = getIntent();
         orderId = intent.getStringExtra("orderId");

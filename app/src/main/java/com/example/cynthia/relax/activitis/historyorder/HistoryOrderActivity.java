@@ -6,11 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 import butterknife.Bind;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.example.cynthia.relax.R;
 import com.example.cynthia.relax.beans.OrderBean;
@@ -32,18 +34,24 @@ public class HistoryOrderActivity extends AppCompatActivity implements HistoryOr
     HistoryOrderAdapter historyOrderAdapter;
     Integer userId;
     Integer identity;
+
+    @Bind(R.id.toolbar)
+    Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history_order);
+        ButterKnife.bind(this);
+        setSupportActionBar(toolbar);
         historyOrderPresenter = new HistoryOrderPresenter(this);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.orders_view);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
-        historyOrderAdapter = new HistoryOrderAdapter(orderBeans,HistoryOrderActivity.this);
+        historyOrderAdapter = new HistoryOrderAdapter(orderBeans, HistoryOrderActivity.this);
         recyclerView.setAdapter(historyOrderAdapter);
         sharedPreferences = this.getSharedPreferences("userInfo", Context.MODE_PRIVATE);
-        userId = sharedPreferences.getInt("userId",1);
+        userId = sharedPreferences.getInt("userId", 1);
         identity = sharedPreferences.getInt("identity", 0);
         historyOrderPresenter.getHistoryOrdersByPage(userId, identity, page);
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {

@@ -17,16 +17,20 @@ import com.example.cynthia.relax.beans.Type;
 
 import java.util.List;
 
-public class HistoryOrderAdapter extends RecyclerView.Adapter<HistoryOrderAdapter.ViewHolder> {
+public class HistoryOrderAdapter extends RecyclerView.Adapter<HistoryOrderAdapter.ViewHolder> implements View.OnClickListener {
     private List<OrderBean> mOrderList;
     private Context context;
+
+    @Override
+    public void onClick(View v) {
+        skip(mOrderList.get((int)v.getTag()).getOrderId().toString());
+    }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
         TextView consultingType;
         TextView orderStatus;
         TextView partnerName;
         TextView sum;
-        Button operateButton;
 
         public ViewHolder(View view) {
             super(view);
@@ -34,7 +38,6 @@ public class HistoryOrderAdapter extends RecyclerView.Adapter<HistoryOrderAdapte
             orderStatus = (TextView) view.findViewById(R.id.orderStatus);
             partnerName = (TextView) view.findViewById(R.id.partnerName);
             sum = (TextView) view.findViewById(R.id.sum);
-            operateButton = (Button) view.findViewById(R.id.changeOrderStatus);
         }
     }
 
@@ -47,6 +50,7 @@ public class HistoryOrderAdapter extends RecyclerView.Adapter<HistoryOrderAdapte
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_orders, parent, false);
         ViewHolder holder = new ViewHolder(view);
+        view.setOnClickListener(this);
         return holder;
     }
 
@@ -57,19 +61,16 @@ public class HistoryOrderAdapter extends RecyclerView.Adapter<HistoryOrderAdapte
         holder.orderStatus.setText(OrderStatus.getStatusByIndex(orderBean.getOrderStatus()));
         holder.partnerName.setText(orderBean.getPartnerName());
         holder.sum.setText(orderBean.getSum().toString());
-        holder.operateButton.setText("订单详情/操作");
-        holder.operateButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, OrderDetailActivity.class);
-                intent.putExtra("orderId", orderBean.getOrderId().toString());
-                context.startActivity(intent);
-            }
-        });
     }
 
     @Override
     public int getItemCount() {
         return mOrderList.size();
+    }
+
+    public void skip(String orderId){
+        Intent intent = new Intent(context, OrderDetailActivity.class);
+        intent.putExtra("orderId", orderId);
+        context.startActivity(intent);
     }
 }

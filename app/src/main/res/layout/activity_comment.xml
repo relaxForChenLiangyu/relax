@@ -5,7 +5,16 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.cynthia.relax.activitis.orderdetail.OrderDetailActivity" android:orientation="vertical">
+        tools:context="com.example.cynthia.relax.activitis.orderdetail.OrderDetailActivity"
+        android:orientation="vertical">
+    <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:contentInsetStart="0dp"
+            android:background="?attr/colorPrimary"
+            android:theme="?attr/actionBarTheme"
+            android:minHeight="?attr/actionBarSize"
+            android:id="@+id/toolbar"/>
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                   android:layout_marginTop="100dp" android:layout_marginLeft="30dp" android:layout_marginRight="30dp"
                   android:orientation="horizontal">
@@ -36,7 +45,7 @@
             android:id="@+id/commentContent"/>
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                   android:orientation="horizontal" android:layout_marginTop="45dp"
-                  android:layout_marginLeft="30dp" >
+                  android:layout_marginLeft="30dp">
         <Button android:layout_width="156dp" android:layout_height="50dp"
                 android:text="确认" android:id="@+id/commentBtn"/>
         <View android:layout_width="35dp" android:layout_height="match_parent"></View>
