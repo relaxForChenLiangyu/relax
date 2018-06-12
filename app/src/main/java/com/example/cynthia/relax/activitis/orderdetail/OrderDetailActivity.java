@@ -17,6 +17,7 @@ import com.example.cynthia.relax.R;
 import com.example.cynthia.relax.activitis.comment.CommentActivity;
 import com.example.cynthia.relax.activitis.historyorder.HistoryOrderActivity;
 import com.example.cynthia.relax.activitis.login.LoginActivity;
+import com.example.cynthia.relax.activitis.message.MessageActivity;
 import com.example.cynthia.relax.activitis.register.RegisterActivity;
 import com.example.cynthia.relax.beans.OrderBean;
 import com.example.cynthia.relax.beans.OrderStatus;
@@ -59,6 +60,7 @@ public class OrderDetailActivity extends AppCompatActivity implements OrderDetai
     Intent intent;
     int identity = 0;
     String orderId = "1";
+    int userId = 0;
 
     @Override
     public void showMsg(String message) {
@@ -75,9 +77,13 @@ public class OrderDetailActivity extends AppCompatActivity implements OrderDetai
         sharedPreferences = this.getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         orderDetailPresenter = new OrderDetailPresenter(this);
         intent = getIntent();
-        String orderId = intent.getStringExtra("orderId");
+        orderId = intent.getStringExtra("orderId");
+        Bundle bundle = intent.getExtras();
+        OrderBean orderBean = (OrderBean)bundle.get("orderBean");
         identity = sharedPreferences.getInt("identity", 0);
-        orderDetailPresenter.showOrder(orderId);
+        userId = sharedPreferences.getInt("userID",0);
+        showDatas(orderBean);
+        //orderDetailPresenter.showOrder(orderId);
     }
 
     @Override
@@ -95,6 +101,7 @@ public class OrderDetailActivity extends AppCompatActivity implements OrderDetai
         consultingStartTime.setText(formatter.format(sd));
         consultingEndTime.setText(formatter.format(ed));
         description.setText(orderBean.getDescription());
+        orderId = orderBean.getOrderId().toString();
         if (orderBean.getOrderStatus() == 1) {
             if (identity == 0)
                 cancelBtn.setText("取消预订");
@@ -116,6 +123,7 @@ public class OrderDetailActivity extends AppCompatActivity implements OrderDetai
                         @Override
                         public void onClick(View v) {
                             orderDetailPresenter.continueOrder(orderId);
+                            skipToHistoryOrder();
                         }
                     });
                     break;
@@ -125,6 +133,7 @@ public class OrderDetailActivity extends AppCompatActivity implements OrderDetai
                         @Override
                         public void onClick(View v) {
                             orderDetailPresenter.continueOrder(orderId);
+                            skipToMessage(orderBean);
                         }
                     });
                     break;
@@ -134,6 +143,7 @@ public class OrderDetailActivity extends AppCompatActivity implements OrderDetai
                         @Override
                         public void onClick(View v) {
                             orderDetailPresenter.continueOrder(orderId);
+                            skipToHistoryOrder();
                         }
                     });
                     break;
@@ -161,6 +171,7 @@ public class OrderDetailActivity extends AppCompatActivity implements OrderDetai
                         @Override
                         public void onClick(View v) {
                             orderDetailPresenter.continueOrder(orderId);
+                            skipToHistoryOrder();
                         }
                     });
                     break;
@@ -170,6 +181,8 @@ public class OrderDetailActivity extends AppCompatActivity implements OrderDetai
                         @Override
                         public void onClick(View v) {
                             orderDetailPresenter.continueOrder(orderId);
+                            skipToMessage(orderBean);
+
                         }
                     });
                     break;
@@ -179,6 +192,7 @@ public class OrderDetailActivity extends AppCompatActivity implements OrderDetai
                         @Override
                         public void onClick(View v) {
                             orderDetailPresenter.continueOrder(orderId);
+                            skipToHistoryOrder();
                         }
                     });
                     break;
@@ -191,5 +205,22 @@ public class OrderDetailActivity extends AppCompatActivity implements OrderDetai
     @Override
     public void statusChangedIntent() {
         startActivity(new Intent(OrderDetailActivity.this, HistoryOrderActivity.class));
+    }
+
+    @Override
+    public void skipToHistoryOrder() {
+        Intent intent = new Intent();
+        intent.setClass(OrderDetailActivity.this,HistoryOrderActivity.class);
+        startActivity(intent);
+    }
+
+    public void skipToMessage(OrderBean orderBean){
+        //int patientId = orderBean.getPatientId();
+        //String dialogist = (userId == patientId) ? orderBean.getSpecialistName() :orderBean.getPatientName() ;
+        String dialogist = orderBean.getPartnerName();
+        Intent intent = new Intent();
+        intent.putExtra("extra_dialogist", dialogist);
+        intent.setClass(OrderDetailActivity.this, MessageActivity.class);
+        startActivity(intent);
     }
 }

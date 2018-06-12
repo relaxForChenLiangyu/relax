@@ -1,6 +1,7 @@
 package com.example.cynthia.relax.activitis.historyorder;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.example.cynthia.relax.R;
+import com.example.cynthia.relax.activitis.post.PostListActivity;
 import com.example.cynthia.relax.beans.OrderBean;
 import com.example.cynthia.relax.presenters.HistoryOrderPresenter;
 
@@ -51,7 +53,7 @@ public class HistoryOrderActivity extends AppCompatActivity implements HistoryOr
         historyOrderAdapter = new HistoryOrderAdapter(orderBeans, HistoryOrderActivity.this);
         recyclerView.setAdapter(historyOrderAdapter);
         sharedPreferences = this.getSharedPreferences("userInfo", Context.MODE_PRIVATE);
-        userId = sharedPreferences.getInt("userId", 1);
+        userId = sharedPreferences.getInt("userID", 1);
         identity = sharedPreferences.getInt("identity", 0);
         historyOrderPresenter.getHistoryOrdersByPage(userId, identity, page);
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -68,6 +70,14 @@ public class HistoryOrderActivity extends AppCompatActivity implements HistoryOr
                 super.onScrolled(recyclerView, dx, dy);
             }*/
         });
+    }
+
+    @OnClick(R.id.refresh)
+    public void refresh(View view){
+        finish();
+        Intent intent = new Intent();
+        intent.setClass(HistoryOrderActivity.this, HistoryOrderActivity.class);
+        startActivity(intent);
     }
 
     public void showSuccessMsg(String s) {

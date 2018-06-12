@@ -66,8 +66,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     }
 
     @Override
-    public void showSuccessMsg(int userId) {
-        Toast.makeText(LoginActivity.this, "用户" + userId + "登录成功!", Toast.LENGTH_SHORT).show();
+    public void showSuccessMsg(String nickname) {
+        Toast.makeText(LoginActivity.this, "用户" + nickname + "登录成功!", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
     }

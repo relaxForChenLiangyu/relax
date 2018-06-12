@@ -6,4 +6,5 @@ public interface OrderDetailView {
     public void showDatas(OrderBean orderBean);
     public void showMsg(String message);
     public void statusChangedIntent();
+    void skipToHistoryOrder();
 }

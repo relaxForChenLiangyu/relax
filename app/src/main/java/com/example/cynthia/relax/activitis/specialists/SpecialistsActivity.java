@@ -24,6 +24,7 @@ public class SpecialistsActivity extends AppCompatActivity implements Specialist
     private RecyclerView specialistRecyclerView;
     private Spinner searchTypeSpinner;
     private Spinner sortKeySpinner;
+    private ImageButton refresh;
 
     private GridLayoutManager gridLayoutManager;
     private SpecialistAdapter specialistAdapter;
@@ -44,6 +45,16 @@ public class SpecialistsActivity extends AppCompatActivity implements Specialist
         specialistRecyclerView = (RecyclerView)findViewById(R.id.specialistRecyclerView);
         sortKeySpinner = (Spinner)findViewById(R.id.sortKey);
         searchTypeSpinner = (Spinner)findViewById(R.id.searchByType);
+        refresh = (ImageButton)findViewById(R.id.refresh);
+        refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                Intent intent = new Intent();
+                intent.setClass(SpecialistsActivity.this, SpecialistsActivity.class);
+                startActivity(intent);
+            }
+        });
         //new Thread(new SpecialistThread()).start();
 
         gridLayoutManager = new GridLayoutManager(this,2);

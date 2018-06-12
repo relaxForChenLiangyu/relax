@@ -73,8 +73,9 @@ public class OrderDetailPresenter {
             public void onResponse(Call<Integer> call, Response<Integer> response) {
                 try {
                     Integer result = response.body();
-                    if (result == 1)
+                    if (result == 1) {
                         orderDetailView.showMsg("订单更改状态成功");
+                    }
                     else
                         orderDetailView.showMsg("订单更改状态失败");
                     //orderDetailView.statusChangedIntent();
