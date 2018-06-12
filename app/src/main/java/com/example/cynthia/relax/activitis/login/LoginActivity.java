@@ -11,6 +11,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.example.cynthia.relax.R;
+import com.example.cynthia.relax.activitis.BaseActivity;
 import com.example.cynthia.relax.activitis.historyorder.HistoryOrderView;
 import com.example.cynthia.relax.activitis.main.MainActivity;
 import com.example.cynthia.relax.activitis.register.RegisterActivity;
@@ -18,7 +19,7 @@ import com.example.cynthia.relax.presenters.HistoryOrderPresenter;
 import com.example.cynthia.relax.presenters.LoginPresenter;
 
 
-public class LoginActivity extends AppCompatActivity implements LoginView {
+public class LoginActivity extends BaseActivity implements LoginView {
     @Bind(R.id.editLoginPhone)
     EditText editPhone;
 
@@ -41,6 +42,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        initializeTop(this, true, "登录");
         ButterKnife.bind(this);
         sharedPreferences = this.getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         loginPresenter = new LoginPresenter(this);

@@ -11,6 +11,7 @@ import com.example.cynthia.relax.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import com.example.cynthia.relax.activitis.BaseActivity;
 import com.example.cynthia.relax.activitis.main.MainActivity;
 import com.example.cynthia.relax.presenters.PostPresenter;
 import com.example.cynthia.relax.services.IPostService;
@@ -19,7 +20,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SendPostActivity extends AppCompatActivity implements SendPostView{
+public class SendPostActivity extends BaseActivity implements SendPostView{
 
     @Bind(R.id.titleEdit)
     EditText titleEdit;
@@ -36,6 +37,7 @@ public class SendPostActivity extends AppCompatActivity implements SendPostView{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_post);
+        initializeTop(this, true, "倾诉");
         ButterKnife.bind(this);
         postPresenter = new PostPresenter(this);
 

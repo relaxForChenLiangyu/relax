@@ -10,11 +10,12 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.example.cynthia.relax.R;
+import com.example.cynthia.relax.activitis.BaseActivity;
 import com.example.cynthia.relax.activitis.historyorder.HistoryOrderActivity;
 import com.example.cynthia.relax.activitis.orderdetail.OrderDetailActivity;
 import com.example.cynthia.relax.presenters.CommentPresenter;
 
-public class CommentActivity extends AppCompatActivity implements CommentView {
+public class CommentActivity extends BaseActivity implements CommentView {
 
     @Bind(R.id.CspecialistName)
     TextView specialistName;
@@ -26,8 +27,6 @@ public class CommentActivity extends AppCompatActivity implements CommentView {
     Button commentBtn;
     @Bind(R.id.cancelComment)
     Button cancelComment;
-    @Bind(R.id.toolbar)
-    Toolbar toolbar;
 
     Intent intent;
     CommentPresenter commentPresenter;
@@ -35,10 +34,10 @@ public class CommentActivity extends AppCompatActivity implements CommentView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("订单评价");
+        initializeTop(this, true, "订单评价");
         setContentView(R.layout.activity_comment);
         ButterKnife.bind(this);
-        setSupportActionBar(toolbar);
+
         commentPresenter = new CommentPresenter(this);
         intent = getIntent();
         orderId = intent.getStringExtra("orderId");

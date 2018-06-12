@@ -9,6 +9,8 @@
         android:background="@android:color/white"
         android:orientation="vertical">
 
+    <include layout="@layout/top_toolbar"
+             android:id="@+id/top_toolbar"/>
     <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">

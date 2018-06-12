@@ -16,12 +16,13 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.example.cynthia.relax.R;
+import com.example.cynthia.relax.activitis.BaseActivity;
 import com.example.cynthia.relax.activitis.main.MainActivity;
 import com.example.cynthia.relax.beans.SpecialistBean;
 import com.example.cynthia.relax.beans.UserBean;
 import com.example.cynthia.relax.presenters.PersonalPresenter;
 
-public class PersonalActivity extends AppCompatActivity implements PersonalView{
+public class PersonalActivity extends BaseActivity implements PersonalView{
     @Bind(R.id.toolbar)
     Toolbar toolbar;
 
@@ -69,6 +70,7 @@ public class PersonalActivity extends AppCompatActivity implements PersonalView{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal);
+        initializeTop(this, true, "个人信息");
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();

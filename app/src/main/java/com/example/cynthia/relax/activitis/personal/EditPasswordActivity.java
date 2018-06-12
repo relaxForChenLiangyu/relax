@@ -11,9 +11,10 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.example.cynthia.relax.R;
+import com.example.cynthia.relax.activitis.BaseActivity;
 import com.example.cynthia.relax.presenters.PersonalPresenter;
 
-public class EditPasswordActivity extends AppCompatActivity implements EditPasswordView {
+public class EditPasswordActivity extends BaseActivity implements EditPasswordView {
     @Bind(R.id.curPwd)
     EditText curPwdText;
 
@@ -34,6 +35,7 @@ public class EditPasswordActivity extends AppCompatActivity implements EditPassw
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_password);
+        initializeTop(this, true, "修改密码");
         ButterKnife.bind(this);
         personalPresenter = new PersonalPresenter(this);
         sharedPreferences = this.getSharedPreferences("userInfo", Context.MODE_PRIVATE);

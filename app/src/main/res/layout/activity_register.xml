@@ -8,7 +8,8 @@
         android:layout_margin="15dp"
         android:orientation="vertical"
         tools:context="com.example.cynthia.relax.activitis.register.RegisterActivity">
-
+    <include layout="@layout/top_toolbar"
+             android:id="@+id/top_toolbar"/>
     <ProgressBar
             style="?android:attr/progressBarStyle"
             android:layout_width="match_parent"

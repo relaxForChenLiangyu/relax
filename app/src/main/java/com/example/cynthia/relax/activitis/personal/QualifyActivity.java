@@ -12,6 +12,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.example.cynthia.relax.R;
+import com.example.cynthia.relax.activitis.BaseActivity;
 import com.example.cynthia.relax.activitis.main.MainActivity;
 import com.example.cynthia.relax.beans.SpecialistBean;
 import com.example.cynthia.relax.beans.UserBean;
@@ -20,7 +21,7 @@ import com.example.cynthia.relax.presenters.PersonalPresenter;
 import java.util.HashMap;
 import java.util.Map;
 
-public class QualifyActivity extends AppCompatActivity implements QualifyView{
+public class QualifyActivity extends BaseActivity implements QualifyView{
     @Bind(R.id.qualificationName)
     TextView nameText;
 
@@ -42,6 +43,7 @@ public class QualifyActivity extends AppCompatActivity implements QualifyView{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qualify);
+        initializeTop(this, true, "认证");
         ButterKnife.bind(this);
 
         personalPresenter = new PersonalPresenter(this);

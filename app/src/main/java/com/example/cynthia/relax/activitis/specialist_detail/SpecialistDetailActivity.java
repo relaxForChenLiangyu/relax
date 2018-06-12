@@ -11,6 +11,7 @@ import android.widget.*;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import com.example.cynthia.relax.R;
+import com.example.cynthia.relax.activitis.BaseActivity;
 import com.example.cynthia.relax.activitis.main.MainActivity;
 import com.example.cynthia.relax.activitis.order.OrderActivity;
 import com.example.cynthia.relax.beans.CommentBean;
@@ -21,7 +22,7 @@ import com.example.cynthia.relax.presenters.SpecialistDetailPresenter;
 
 import java.util.*;
 
-public class SpecialistDetailActivity extends AppCompatActivity implements SpecialistDetailView{
+public class SpecialistDetailActivity extends BaseActivity implements SpecialistDetailView{
     @Bind(R.id.preOrderTable)
     TableLayout preOrderTable;
 
@@ -64,6 +65,7 @@ public class SpecialistDetailActivity extends AppCompatActivity implements Speci
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_specialist_detail);
+        initializeTop(this, true, "专家信息");
         ButterKnife.bind(this);
         bindData();
         specialistDetailPresenter = new SpecialistDetailPresenter(this);

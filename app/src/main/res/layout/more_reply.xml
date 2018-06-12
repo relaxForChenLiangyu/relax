@@ -6,6 +6,8 @@
               android:orientation="vertical"
               android:layout_margin="15dp"
               tools:context="com.example.cynthia.relax.activitis.post.MoreReplyActivity">
+    <include layout="@layout/top_toolbar"
+             android:id="@+id/top_toolbar"/>
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"

@@ -13,6 +13,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.example.cynthia.relax.R;
+import com.example.cynthia.relax.activitis.BaseActivity;
 import com.example.cynthia.relax.beans.PostBean;
 import com.example.cynthia.relax.beans.ReplyBean;
 import com.example.cynthia.relax.presenters.PostDetailPresenter;
@@ -20,7 +21,7 @@ import com.example.cynthia.relax.presenters.PostDetailPresenter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MoreReplyActivity extends AppCompatActivity implements MoreReplyView{
+public class MoreReplyActivity extends BaseActivity implements MoreReplyView{
 
     @Bind(R.id.userName)
     TextView userName;
@@ -56,6 +57,7 @@ public class MoreReplyActivity extends AppCompatActivity implements MoreReplyVie
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.more_reply);
+        initializeTop(this, true, "回复详情");
         ButterKnife.bind(this);
         bindData();
         postDetailPresenter = new PostDetailPresenter(this);

@@ -13,13 +13,14 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.example.cynthia.relax.R;
+import com.example.cynthia.relax.activitis.BaseActivity;
 import com.example.cynthia.relax.beans.PostBean;
 import com.example.cynthia.relax.presenters.PostPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PostListActivity extends AppCompatActivity implements PostView{
+public class PostListActivity extends BaseActivity implements PostView{
     @Bind(R.id.questionBtn)
     Button questionBtn;
 
@@ -52,6 +53,7 @@ public class PostListActivity extends AppCompatActivity implements PostView{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_list);
+        initializeTop(this, true, "树洞");
         ButterKnife.bind(this);
         postBeans = new ArrayList<>();
         postPresenter = new PostPresenter(this);

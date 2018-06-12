@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.*;
 import butterknife.Bind;
 import com.example.cynthia.relax.R;
+import com.example.cynthia.relax.activitis.BaseActivity;
 import com.example.cynthia.relax.activitis.specialist_detail.SpecialistDetailActivity;
 import com.example.cynthia.relax.beans.SpecialistBean;
 import com.example.cynthia.relax.presenters.SpecialistsPresenter;
@@ -18,7 +19,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SpecialistsActivity extends AppCompatActivity implements SpecialistView{
+public class SpecialistsActivity extends BaseActivity implements SpecialistView{
     List<SpecialistBean> specialistBeans;
 
     private RecyclerView specialistRecyclerView;
@@ -39,6 +40,7 @@ public class SpecialistsActivity extends AppCompatActivity implements Specialist
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_specialists);
+        initializeTop(this, true, "专家列表");
         specialistBeans = new ArrayList<>();
         specialistsPresenter = new SpecialistsPresenter(this);
 

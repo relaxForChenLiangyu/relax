@@ -7,9 +7,11 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
+    <include layout="@layout/top_toolbar"
+             android:id="@+id/top_toolbar"/>
     <ImageButton
             android:layout_width="wrap_content" android:layout_gravity="center"
-            android:layout_height="wrap_content" android:id="@+id/refresh"
+            android:layout_height="wrap_content" android:id="@+id/refresh" android:layout_below="@+id/top_toolbar"
             style="@style/Widget.AppCompat.Button.Borderless" app:srcCompat="@mipmap/refresh_24px"/>
     <Button
             android:text="我要倾诉"

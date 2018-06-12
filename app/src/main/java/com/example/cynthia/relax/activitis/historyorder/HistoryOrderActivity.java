@@ -16,6 +16,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.example.cynthia.relax.R;
+import com.example.cynthia.relax.activitis.BaseActivity;
 import com.example.cynthia.relax.activitis.post.PostListActivity;
 import com.example.cynthia.relax.beans.OrderBean;
 import com.example.cynthia.relax.presenters.HistoryOrderPresenter;
@@ -25,7 +26,7 @@ import java.util.List;
 
 import static android.support.v7.widget.RecyclerView.SCROLL_STATE_DRAGGING;
 
-public class HistoryOrderActivity extends AppCompatActivity implements HistoryOrderView {
+public class HistoryOrderActivity extends BaseActivity implements HistoryOrderView {
     HistoryOrderPresenter historyOrderPresenter;
     public List<OrderBean> orderBeans = new ArrayList<>();
     int page = 0;
@@ -37,15 +38,13 @@ public class HistoryOrderActivity extends AppCompatActivity implements HistoryOr
     Integer userId;
     Integer identity;
 
-    @Bind(R.id.toolbar)
-    Toolbar toolbar;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history_order);
         ButterKnife.bind(this);
-        setSupportActionBar(toolbar);
+        initializeTop(this, true, "历史订单");
+
         historyOrderPresenter = new HistoryOrderPresenter(this);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.orders_view);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);

@@ -31,7 +31,7 @@
                 <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
-                        android:background="#ffdfe9">
+                        android:background="@mipmap/bg5">
 
                     <Button
                             android:text="注册"
