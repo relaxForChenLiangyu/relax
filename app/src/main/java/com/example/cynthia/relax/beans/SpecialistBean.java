@@ -29,6 +29,14 @@ public class SpecialistBean implements Serializable {
     public SpecialistBean() {
     }
 
+    public SpecialistBean(Integer specialistId, String realName, String qualification, Integer employLength, String introduction) {
+        this.specialistId = specialistId;
+        this.realName = realName;
+        this.qualification = qualification;
+        this.employLength = employLength;
+        this.introduction = introduction;
+    }
+
     public SpecialistBean(String realName, Double rating, String qualification, Integer employLength) {
         this.realName = realName;
         this.rating = rating;

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.cynthia.relax.activitis.orderdetail.OrderDetailActivity"
+        android:orientation="vertical">
+    <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:contentInsetStart="0dp"
+            android:background="?attr/colorPrimary"
+            android:theme="?attr/actionBarTheme"
+            android:minHeight="?attr/actionBarSize"
+            android:id="@+id/toolbar"/>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:orientation="vertical">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:layout_marginTop="45dp" android:layout_marginLeft="30dp"
+                      android:layout_marginRight="30dp" android:orientation="vertical">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                          android:orientation="horizontal">
+                <TextView android:layout_width="100dp"
+                          android:layout_height="wrap_content"
+                          android:text="下单时间："
+                />
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:text="OrderTime"
+                          android:id="@+id/DorderTime"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                          android:orientation="horizontal" android:layout_marginTop="35dp">
+                <TextView android:layout_width="100dp"
+                          android:layout_height="wrap_content"
+                          android:text="订单状态："
+                />
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:text="OrderStatus"
+                          android:id="@+id/DorderStatus"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                          android:orientation="horizontal" android:layout_marginTop="35dp">
+                <TextView android:layout_width="100dp"
+                          android:layout_height="wrap_content"
+                          android:text="咨询类型："
+                />
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:text="ConsultingType"
+                          android:id="@+id/DconsultingType"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                          android:orientation="horizontal" android:layout_marginTop="35dp">
+                <TextView android:layout_width="100dp"
+                          android:layout_height="wrap_content"
+                          android:text="咨询人姓名："
+                />
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:text="PatientName"
+                          android:id="@+id/DpatientName"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                          android:orientation="horizontal" android:layout_marginTop="35dp">
+                <TextView android:layout_width="100dp"
+                          android:layout_height="wrap_content"
+                          android:text="专家姓名："
+                />
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:text="SpecialistName"
+                          android:id="@+id/DspecialistName"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                          android:orientation="horizontal" android:layout_marginTop="35dp">
+                <TextView android:layout_width="100dp"
+                          android:layout_height="wrap_content"
+                          android:text="专家联系方式："
+                />
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:text="SpecialistPhone"
+                          android:id="@+id/DspecialistPhone"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                          android:orientation="horizontal" android:layout_marginTop="35dp">
+                <TextView android:layout_width="100dp"
+                          android:layout_height="wrap_content"
+                          android:text="预约开始时间："
+                />
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:text="ConsultingStartTime"
+                          android:id="@+id/DconsultingStartTime"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                          android:orientation="horizontal" android:layout_marginTop="35dp">
+                <TextView android:layout_width="100dp"
+                          android:layout_height="wrap_content"
+                          android:text="预约结束时间："
+                />
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:text="ConsultingEndTime"
+                          android:id="@+id/DconsultingEndTime"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                          android:orientation="horizontal" android:layout_marginTop="35dp">
+                <TextView android:layout_width="100dp"
+                          android:layout_height="wrap_content"
+                          android:text="问题描述："
+                />
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="ConsultingLocation"
+                          android:id="@+id/Ddescription"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                          android:orientation="horizontal" android:layout_marginTop="45dp"
+                          android:layout_marginBottom="10dp">
+                <Button android:layout_width="156dp" android:layout_height="50dp"
+                        android:text="canceller" android:id="@+id/cancelBtn"/>
+                <View android:layout_width="35dp" android:layout_height="match_parent"></View>
+                <Button android:layout_width="156dp" android:layout_height="50dp"
+                        android:text="operator" android:id="@+id/operateBtn"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -11,8 +11,10 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.example.cynthia.relax.R;
+import com.example.cynthia.relax.activitis.historyorder.HistoryOrderView;
 import com.example.cynthia.relax.activitis.main.MainActivity;
 import com.example.cynthia.relax.activitis.register.RegisterActivity;
+import com.example.cynthia.relax.presenters.HistoryOrderPresenter;
 import com.example.cynthia.relax.presenters.LoginPresenter;
 
 
@@ -56,9 +58,10 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     }
 
     @Override
-    public void saveUserIdToSharedPreferences(int userId){
+    public void saveUserIdAndIdentityToSharedPreferences(int userId,int identity){
         SharedPreferences.Editor editor = sharedPreferences.edit();//获取编辑器
         editor.putInt("userID", userId);
+        editor.putInt("identity",identity);
         editor.commit();
     }
 

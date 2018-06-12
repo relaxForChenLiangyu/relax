@@ -12,6 +12,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import com.example.cynthia.relax.R;
 import com.example.cynthia.relax.activitis.main.MainActivity;
+import com.example.cynthia.relax.activitis.order.OrderActivity;
 import com.example.cynthia.relax.beans.CommentBean;
 import com.example.cynthia.relax.beans.PreOrderStatusBean;
 import com.example.cynthia.relax.beans.SpecialistBean;
@@ -156,13 +157,13 @@ public class SpecialistDetailActivity extends AppCompatActivity implements Speci
                     }
                     else {
                         PreOrderStatusBean statusBean = data.get((curDay-2+col)+7*(row-1));
-                        if(statusBean.getIsFree()==0) {
+                        if(statusBean.getIsFree().equals(0)) {
                             textView.setText("休息");
                             textView.setBackgroundColor(Color.rgb(234,234,234));
                             nextWeekStatus+="2";
                         }
                         else{
-                            if(statusBean.getIsOrdered()==1) {
+                            if(statusBean.getIsOrdered().equals(1)) {
                                 textView.setText("忙碌");
                                 textView.setBackgroundColor(Color.rgb(234,234,234));
                                 nextWeekStatus+="1";
@@ -197,7 +198,7 @@ public class SpecialistDetailActivity extends AppCompatActivity implements Speci
                                         bundle.putString("selectedTimeSlot",timeSlotList.get(pos_r-1));
                                         bundle.putString("selectedDayStatus",selectedDayStatus);
                                         intent.putExtras(bundle);
-                                        intent.setClass(SpecialistDetailActivity.this, MainActivity.class);//待修改
+                                        intent.setClass(SpecialistDetailActivity.this, OrderActivity.class);//待修改
                                         startActivity(intent);
                                     }
                                 });

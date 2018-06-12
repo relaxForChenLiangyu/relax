@@ -4,6 +4,7 @@ import android.os.Handler;
 import com.example.cynthia.relax.services.RetrofitServiceManager;
 import com.example.cynthia.relax.services.IUserService;
 import com.example.cynthia.relax.activitis.login.LoginView;
+import com.example.cynthia.relax.utils.BaseJson;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -34,7 +35,7 @@ public class LoginPresenter {
                             loginView.showFailedMsg("账号或密码错误");
                             break;
                         default:
-                            loginView.saveUserIdToSharedPreferences(userId);
+                            loginView.saveUserIdAndIdentityToSharedPreferences(userId,0);
                             loginView.showSuccessMsg(userId);
                             break;
                     }
