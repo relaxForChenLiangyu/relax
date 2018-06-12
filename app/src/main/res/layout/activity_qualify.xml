@@ -6,13 +6,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="com.example.cynthia.relax.activitis.personal.QualifyActivity" android:orientation="vertical">
-    <android.support.v7.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            android:theme="?attr/actionBarTheme"
-            android:minHeight="?attr/actionBarSize"
-            android:id="@+id/toolbar"/>
+    <include layout="@layout/top_toolbar"
+             android:id="@+id/top_toolbar"/>
     <LinearLayout
             android:orientation="vertical"
             android:padding="20dp"

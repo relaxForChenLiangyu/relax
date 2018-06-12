@@ -14,11 +14,12 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.example.cynthia.relax.R;
+import com.example.cynthia.relax.activitis.BaseActivity;
 import com.example.cynthia.relax.activitis.login.LoginActivity;
 import com.example.cynthia.relax.activitis.main.MainActivity;
 import com.example.cynthia.relax.presenters.RegisterPresenter;
 
-public class RegisterActivity extends AppCompatActivity implements RegisterView{
+public class RegisterActivity extends BaseActivity implements RegisterView{
 
     @Bind(R.id.editNickName)
     EditText editNickName;
@@ -52,6 +53,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        initializeTop(this, true, "注册");
         ButterKnife.bind(this);
         sharedPreferences = this.getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         registerPresenter = new RegisterPresenter(this);

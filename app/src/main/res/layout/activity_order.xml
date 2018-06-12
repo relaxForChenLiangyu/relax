@@ -6,104 +6,102 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:context="com.example.cynthia.relax.activitis.order.OrderActivity" android:orientation="vertical">
-    <android.support.v7.widget.Toolbar
+    <include layout="@layout/top_toolbar"
+             android:id="@+id/top_toolbar"/>
+    <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:contentInsetStart="0dp"
-            android:background="?attr/colorPrimary"
-            android:theme="?attr/actionBarTheme"
-            android:minHeight="?attr/actionBarSize"
-            android:id="@+id/toolbar"/>
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                  android:layout_marginTop="60dp" android:layout_marginLeft="30dp" android:layout_marginRight="30dp"
-                  android:orientation="vertical">
-        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
-                      android:orientation="horizontal">
-            <TextView android:layout_width="100dp"
-                      android:layout_height="wrap_content"
-                      android:text="专家姓名："
-            />
-            <TextView android:layout_width="match_parent"
-                      android:layout_height="match_parent"
-                      android:text="SpecialistName"
-                      android:layout_gravity="right"
-                      android:id="@+id/OspecialistName"/>
-        </LinearLayout>
-        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
-                      android:orientation="horizontal" android:layout_marginTop="30dp">
-            <TextView android:layout_width="100dp"
-                      android:layout_height="wrap_content"
-                      android:text="咨询类别"
-            />
-            <Spinner
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:layout_weight="1" android:id="@+id/Otype"/>
+            android:layout_height="match_parent">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:layout_marginTop="60dp" android:layout_marginLeft="30dp" android:layout_marginRight="30dp"
+                      android:orientation="vertical">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                          android:orientation="horizontal">
+                <TextView android:layout_width="100dp"
+                          android:layout_height="wrap_content"
+                          android:text="专家姓名："
+                />
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:text="SpecialistName"
+                          android:layout_gravity="right"
+                          android:id="@+id/OspecialistName"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                          android:orientation="horizontal" android:layout_marginTop="30dp">
+                <TextView android:layout_width="100dp"
+                          android:layout_height="wrap_content"
+                          android:text="咨询类别"
+                />
+                <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:layout_weight="1" android:id="@+id/Otype"/>
 
-        </LinearLayout>
-        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
-                      android:orientation="horizontal" android:layout_marginTop="30dp">
-            <TextView android:layout_width="100dp"
-                      android:layout_height="wrap_content"
-                      android:text="预约日期"
-            />
-            <TextView android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:text="OrderDate"
-                      android:gravity="right"
-                      android:id="@+id/OorderDate"/>
-        </LinearLayout>
-        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
-                      android:orientation="horizontal" android:layout_marginTop="30dp">
-            <TextView android:layout_width="100dp"
-                      android:layout_height="wrap_content"
-                      android:text="开始时间"
-            />
-            <Spinner
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:layout_weight="1" android:id="@+id/OstartTime"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                          android:orientation="horizontal" android:layout_marginTop="30dp">
+                <TextView android:layout_width="100dp"
+                          android:layout_height="wrap_content"
+                          android:text="预约日期"
+                />
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:text="OrderDate"
+                          android:gravity="right"
+                          android:id="@+id/OorderDate"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                          android:orientation="horizontal" android:layout_marginTop="30dp">
+                <TextView android:layout_width="100dp"
+                          android:layout_height="wrap_content"
+                          android:text="开始时间"
+                />
+                <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:layout_weight="1" android:id="@+id/OstartTime"/>
 
-        </LinearLayout>
-        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
-                      android:orientation="horizontal" android:layout_marginTop="30dp">
-            <TextView android:layout_width="100dp"
-                      android:layout_height="wrap_content"
-                      android:text="结束时间"
-            />
-            <Spinner
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:layout_weight="1" android:id="@+id/OendTime"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                          android:orientation="horizontal" android:layout_marginTop="30dp">
+                <TextView android:layout_width="100dp"
+                          android:layout_height="wrap_content"
+                          android:text="结束时间"
+                />
+                <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:layout_weight="1" android:id="@+id/OendTime"/>
 
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                          android:orientation="horizontal" android:layout_marginTop="25dp">
+                <TextView android:layout_width="100dp"
+                          android:layout_height="wrap_content"
+                          android:text="金额"
+                />
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:text="订单金额"
+                          android:gravity="right"
+                          android:id="@+id/Osum"/>
+            </LinearLayout>
+            <EditText
+                    android:layout_width="match_parent"
+                    android:background="#eeeeee"
+                    android:hint="请大致描述一下您想要咨询的情况"
+                    android:gravity="top"
+                    android:layout_height="80dp"
+                    android:inputType="textMultiLine"
+                    android:layout_marginTop="30dp"
+                    android:maxLength="50"
+                    android:ems="10"
+                    android:id="@+id/Odescription"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                          android:orientation="horizontal" android:layout_marginTop="45dp">
+                <Button android:layout_width="156dp" android:layout_height="50dp"
+                        android:layout_gravity="bottom" android:text="确认支付" android:id="@+id/OpayBtn"/>
+                <View android:layout_width="35dp" android:layout_height="match_parent"></View>
+                <Button android:layout_width="156dp" android:layout_height="50dp"
+                        android:layout_gravity="bottom" android:text="取消支付" android:id="@+id/OcancelBtn"/>
+            </LinearLayout>
         </LinearLayout>
-        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
-                      android:orientation="horizontal" android:layout_marginTop="25dp">
-            <TextView android:layout_width="100dp"
-                      android:layout_height="wrap_content"
-                      android:text="金额"
-            />
-            <TextView android:layout_width="match_parent"
-                      android:layout_height="match_parent"
-                      android:text="订单金额"
-                      android:gravity="right"
-                      android:id="@+id/Osum"/>
-        </LinearLayout>
-        <EditText
-                android:layout_width="match_parent"
-                android:background="#eeeeee"
-                android:hint="请大致描述一下您想要咨询的情况"
-                android:gravity="top"
-                android:layout_height="80dp"
-                android:inputType="textMultiLine"
-                android:layout_marginTop="30dp"
-                android:maxLength="50"
-                android:ems="10"
-                android:id="@+id/Odescription"/>
-        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
-                      android:orientation="horizontal" android:layout_marginTop="45dp">
-            <Button android:layout_width="156dp" android:layout_height="50dp"
-                    android:layout_gravity="bottom" android:text="确认支付" android:id="@+id/OpayBtn"/>
-            <View android:layout_width="35dp" android:layout_height="match_parent"></View>
-            <Button android:layout_width="156dp" android:layout_height="50dp"
-                    android:layout_gravity="bottom" android:text="取消支付" android:id="@+id/OcancelBtn"/>
-        </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 </LinearLayout>

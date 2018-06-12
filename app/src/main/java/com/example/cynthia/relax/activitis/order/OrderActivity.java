@@ -11,6 +11,7 @@ import android.widget.*;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import com.example.cynthia.relax.R;
+import com.example.cynthia.relax.activitis.BaseActivity;
 import com.example.cynthia.relax.activitis.historyorder.HistoryOrderActivity;
 import com.example.cynthia.relax.beans.SpecialistBean;
 import com.example.cynthia.relax.beans.Type;
@@ -24,7 +25,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class OrderActivity extends AppCompatActivity implements OrderView {
+public class OrderActivity extends BaseActivity implements OrderView {
     String[] timeDots = {"10:00", "11:00", "13:00", "14:00", "15:00", "16:00", "17:00", "19:00", "20:00", "21:00"};
     DateFormat df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
     Date dateStartTime = new Date();
@@ -58,16 +59,14 @@ public class OrderActivity extends AppCompatActivity implements OrderView {
     Button OpayBtn;
     @Bind(R.id.OcancelBtn)
     Button OcancelBtn;
-    @Bind(R.id.toolbar)
-    Toolbar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("预约");
+        initializeTop(this, true, "预订");
         setContentView(R.layout.activity_order);
         ButterKnife.bind(this);
-        setSupportActionBar(toolbar);
         orderPresenter = new OrderPresenter(this);
         Osum.setText("￥ 100");
         sharedPreferences = this.getSharedPreferences("userInfo", Context.MODE_PRIVATE);

@@ -14,6 +14,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.example.cynthia.relax.R;
+import com.example.cynthia.relax.activitis.BaseActivity;
 import com.example.cynthia.relax.activitis.comment.CommentActivity;
 import com.example.cynthia.relax.activitis.historyorder.HistoryOrderActivity;
 import com.example.cynthia.relax.activitis.login.LoginActivity;
@@ -28,7 +29,7 @@ import com.example.cynthia.relax.presenters.OrderDetailPresenter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class OrderDetailActivity extends AppCompatActivity implements OrderDetailView {
+public class OrderDetailActivity extends BaseActivity implements OrderDetailView {
 
     @Bind(R.id.DorderTime)
     TextView orderTime;
@@ -52,8 +53,6 @@ public class OrderDetailActivity extends AppCompatActivity implements OrderDetai
     Button cancelBtn;
     @Bind(R.id.operateBtn)
     Button operateBtn;
-    @Bind(R.id.toolbar)
-    Toolbar toolbar;
 
     private SharedPreferences sharedPreferences;
     private OrderDetailPresenter orderDetailPresenter;
@@ -70,10 +69,9 @@ public class OrderDetailActivity extends AppCompatActivity implements OrderDetai
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("订单详情");
+        initializeTop(this, true, "订单详情");
         setContentView(R.layout.activity_order_detail);
         ButterKnife.bind(this);
-        setSupportActionBar(toolbar);
         sharedPreferences = this.getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         orderDetailPresenter = new OrderDetailPresenter(this);
         intent = getIntent();

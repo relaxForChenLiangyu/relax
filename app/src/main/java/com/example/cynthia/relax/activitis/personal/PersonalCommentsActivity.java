@@ -12,6 +12,7 @@ import android.widget.Toast;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import com.example.cynthia.relax.R;
+import com.example.cynthia.relax.activitis.BaseActivity;
 import com.example.cynthia.relax.activitis.specialist_detail.SpecialistDetailCommentAdapter;
 import com.example.cynthia.relax.beans.CommentBean;
 import com.example.cynthia.relax.beans.SpecialistBean;
@@ -21,7 +22,7 @@ import com.example.cynthia.relax.presenters.PersonalPresenter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PersonalCommentsActivity extends AppCompatActivity implements PersonalCommentsView{
+public class PersonalCommentsActivity extends BaseActivity implements PersonalCommentsView{
     @Bind(R.id.commentNum)
     TextView commentNumText;
 
