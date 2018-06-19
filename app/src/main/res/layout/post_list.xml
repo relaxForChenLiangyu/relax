@@ -21,12 +21,13 @@
             android:layout_height="match_parent"
             android:layout_marginTop="15dp">
         <TextView
-                android:layout_width="150dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content" android:id="@+id/blank" android:layout_weight="1"/>
         <TextView
                 android:text="来自"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/from" android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:id="@+id/from" android:layout_weight="1"
                 android:gravity="end" android:textSize="12sp"/>
         <TextView
                 android:text="提问者"

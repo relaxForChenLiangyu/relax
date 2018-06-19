@@ -47,7 +47,7 @@ public class PersonalCommentsActivity extends BaseActivity implements PersonalCo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pesonal_comments);
         ButterKnife.bind(this);
-
+        initializeTop(this,true,"我的评价");
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         userBean = (UserBean) bundle.get("userBean");

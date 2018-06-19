@@ -34,8 +34,8 @@ public class CommentActivity extends BaseActivity implements CommentView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initializeTop(this, true, "订单评价");
         setContentView(R.layout.activity_comment);
+        initializeTop(this, true, "订单评价");
         ButterKnife.bind(this);
 
         commentPresenter = new CommentPresenter(this);

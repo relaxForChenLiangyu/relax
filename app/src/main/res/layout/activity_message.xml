@@ -5,7 +5,7 @@
               android:orientation="vertical"
               tools:context="com.example.cynthia.relax.activitis.message.MessageActivity">
 
-    <android.support.v7.widget.Toolbar
+    <!--<android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="#ffffff"
@@ -34,8 +34,9 @@
                 android:text="对话者"
                 android:textColor="@android:color/black"
                 android:textSize="25sp"/>
-    </android.support.v7.widget.Toolbar>
-    />
+    </android.support.v7.widget.Toolbar>-->
+    <include layout="@layout/top_toolbar"
+             android:id="@+id/top_toolbar"/>
 
 
     <android.support.v7.widget.RecyclerView android:layout_width="match_parent"

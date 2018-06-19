@@ -69,8 +69,8 @@ public class OrderDetailActivity extends BaseActivity implements OrderDetailView
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initializeTop(this, true, "订单详情");
         setContentView(R.layout.activity_order_detail);
+        initializeTop(this, true, "订单详情");
         ButterKnife.bind(this);
         sharedPreferences = this.getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         orderDetailPresenter = new OrderDetailPresenter(this);

@@ -6,13 +6,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_margin="15dp"
         tools:context="com.example.cynthia.relax.activitis.post.SendPostActivity">
     <include layout="@layout/top_toolbar"
              android:id="@+id/top_toolbar"/>
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
             android:inputType="textPersonName"
             android:ems="10"
             android:id="@+id/titleEdit" android:hint="请输入问题..." android:textSize="14sp"/>
@@ -20,11 +22,12 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:inputType="textMultiLine"
+            android:layout_margin="15dp"
             android:ems="10" android:gravity="start"
-            android:maxLines="4" android:layout_marginTop="15dp"
+            android:maxLines="4"
             android:id="@+id/contentEdit" android:hint="请输入问题描述..." android:textSize="14sp"/>
     <Button
-            android:text="提交" android:layout_marginTop="15dp"
+            android:text="提交" android:layout_margin="15dp"
             android:layout_width="match_parent"
             android:layout_height="50dp" android:id="@+id/sendBtn" android:textSize="14sp"/>
 </LinearLayout>

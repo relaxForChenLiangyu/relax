@@ -64,8 +64,8 @@ public class OrderActivity extends BaseActivity implements OrderView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initializeTop(this, true, "预订");
         setContentView(R.layout.activity_order);
+        initializeTop(this, true, "预订");
         ButterKnife.bind(this);
         orderPresenter = new OrderPresenter(this);
         Osum.setText("￥ 100");

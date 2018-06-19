@@ -10,7 +10,7 @@
     <include layout="@layout/top_toolbar"
              android:id="@+id/top_toolbar"/>
     <ScrollView android:layout_width="match_parent" android:layout_height="wrap_content"
-                  android:orientation="vertical">
+                android:orientation="vertical">
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                       android:layout_marginTop="45dp" android:layout_marginLeft="30dp"
                       android:layout_marginRight="30dp" android:orientation="vertical">
@@ -116,11 +116,17 @@
             <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
                           android:orientation="horizontal" android:layout_marginTop="45dp"
                           android:layout_marginBottom="10dp">
-                <Button android:layout_width="156dp" android:layout_height="50dp"
-                        android:text="canceller" android:id="@+id/cancelBtn"/>
+                <Button android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:text="canceller"
+                        android:id="@+id/cancelBtn"/>
                 <View android:layout_width="35dp" android:layout_height="match_parent"></View>
-                <Button android:layout_width="156dp" android:layout_height="50dp"
-                        android:text="operator" android:id="@+id/operateBtn"/>
+                <Button android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:text="operator"
+                        android:id="@+id/operateBtn"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

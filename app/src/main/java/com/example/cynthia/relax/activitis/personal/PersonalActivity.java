@@ -23,8 +23,6 @@ import com.example.cynthia.relax.beans.UserBean;
 import com.example.cynthia.relax.presenters.PersonalPresenter;
 
 public class PersonalActivity extends BaseActivity implements PersonalView{
-    @Bind(R.id.toolbar)
-    Toolbar toolbar;
 
     @Bind(R.id.personalEditPwdBtn)
     Button editPwdBtn;
@@ -70,11 +68,8 @@ public class PersonalActivity extends BaseActivity implements PersonalView{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal);
-        initializeTop(this, true, "个人信息");
+        initializeTop(this, true, "个人中心");
         ButterKnife.bind(this);
-        setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("");
         personalPresenter = new PersonalPresenter(this);
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();

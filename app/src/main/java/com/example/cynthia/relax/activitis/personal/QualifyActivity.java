@@ -43,7 +43,7 @@ public class QualifyActivity extends BaseActivity implements QualifyView{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qualify);
-        initializeTop(this, true, "认证");
+        initializeTop(this, true, "专家认证");
         ButterKnife.bind(this);
 
         personalPresenter = new PersonalPresenter(this);
@@ -52,7 +52,6 @@ public class QualifyActivity extends BaseActivity implements QualifyView{
         Bundle bundle = intent.getExtras();
         userBean = (UserBean)bundle.getSerializable("userBean");
         nameText.setText(userBean.getRealName());
-
 
     }
 

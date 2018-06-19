@@ -10,7 +10,7 @@ public class RetrofitServiceManager {
     private static final int DEFAULT_TIME_OUT = 10;//超时时间 10s
     private static final int DEFAULT_READ_TIME_OUT = 10;
     private Retrofit mRetrofit;
-    protected static final String path = "http://10.0.2.2:10000/api/";
+    protected static final String path = "http://192.168.1.104:10000/api/";//设置为本机ip地址
     private RetrofitServiceManager(){
         // 创建 OKHttpClient
         OkHttpClient.Builder builder = new OkHttpClient.Builder();

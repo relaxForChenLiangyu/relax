@@ -24,9 +24,6 @@ public class PostListActivity extends BaseActivity implements PostView{
     @Bind(R.id.questionBtn)
     Button questionBtn;
 
-    @Bind(R.id.refresh)
-    ImageButton refresh;
-
     List<PostBean> postBeans;
 
     private RecyclerView postRecyclerView;
@@ -38,14 +35,6 @@ public class PostListActivity extends BaseActivity implements PostView{
     public void question(View view){
         Intent intent = new Intent();
         intent.setClass(PostListActivity.this, SendPostActivity.class);
-        startActivity(intent);
-    }
-
-    @OnClick(R.id.refresh)
-    public void refresh(View view){
-        finish();
-        Intent intent = new Intent();
-        intent.setClass(PostListActivity.this, PostListActivity.class);
         startActivity(intent);
     }
 

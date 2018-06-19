@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import com.example.cynthia.relax.R;
+import com.example.cynthia.relax.activitis.BaseActivity;
 import com.example.cynthia.relax.beans.MessageBean;
 
 import java.io.IOException;
@@ -24,14 +25,14 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class MessageActivity extends AppCompatActivity {
+public class MessageActivity extends BaseActivity {
     private ArrayList<MessageBean> msgList;
     private EditText inputText;
     private Button send;
     private RecyclerView msgRecyclerView;
     private MsgAdapter adapter ;
     private Socket socket;
-    private TextView toolbarTitle;
+    //private TextView toolbarTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +42,12 @@ public class MessageActivity extends AppCompatActivity {
         inputText = (EditText) findViewById(R.id.msg_input);
         send = (Button)findViewById(R.id.btn_send);
         msgRecyclerView = (RecyclerView)findViewById(R.id.msg_recycler);
-        toolbarTitle = (TextView)findViewById(R.id.title_toolbar);
+        //toolbarTitle = (TextView)findViewById(R.id.title_toolbar);
 
         Intent intent = getIntent();
         String dialogist = intent.getStringExtra("extra_dialogist");
-        toolbarTitle.setText(dialogist);
+        initializeTop(this,true,dialogist);
+        //toolbarTitle.setText(dialogist);
 
         msgList = new ArrayList<>();
         adapter = new MsgAdapter(this);
@@ -56,7 +58,7 @@ public class MessageActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try{
-                    socket = new Socket("192.168.1.107", 10010);
+                    socket = new Socket("192.168.1.104", 10010);
                     InputStream inputStream = socket.getInputStream();
                     byte[] buffer = new byte[1024];
                     int len;
